@@ -6,9 +6,13 @@
 body {
   margin: 0px;
   font-family: "Electrolize", sans-serif;
-  overflow: hidden;
 }
 
-.categories::-webkit-scrollbar{
-  display: none;
+@media (min-width: 768px) {
+  body {
+    overflow: hidden;
+  }
+  .categories::-webkit-scrollbar {
+    display: none;
+  }
 }
