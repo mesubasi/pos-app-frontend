@@ -1,5 +1,7 @@
+//CreateInvoice.jsx
+
 import React from 'react';
-import { Modal, Form, Input, Select, Card, Button } from 'antd';
+import { Modal, Form, Input, Select, Button } from 'antd';
 
 const CreateInvoice = ({ isModalOpen, setIsModalOpen }) => {
     const { Option } = Select;

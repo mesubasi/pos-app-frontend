@@ -17,7 +17,7 @@ const Header = () => {
     <div className="border-b mb-6">
       <header className="header py-4 px-6 flex justify-between items-center gap-10">
         <div className="logo">
-          <Link href="/">
+          <Link to="/">
             <h2 className="text-2xl font-bold md:text-4xl">LOGO</h2>
           </Link>
         </div>
@@ -40,7 +40,7 @@ const Header = () => {
               <span className="md:text-xs text-[10px]">Cart</span>
             </Link>
           </Badge>
-          <Link to="" className="menu-link flex flex-col items-center hover:text-[#40a9ff] transition-all">
+          <Link to={"/invoices"} className="menu-link flex flex-col items-center hover:text-[#40a9ff] transition-all">
             <CopyOutlined className="md:text-2xl text-xl" />
             <span className="md:text-xs text-[10px]">Invoices</span>
           </Link>
