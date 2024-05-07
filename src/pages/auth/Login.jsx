@@ -42,7 +42,8 @@ const Login = () => {
                     <div className='flex justify-center absolute left-0 bottom-10 w-full'>
                         Don't have an account yet? &nbsp;
                         <Link to="/register" className='text-blue-600'>
-                            Register Now</Link>
+                            Register Now
+                        </Link>
                     </div>
                 </div>
                 <div className='xl:w-4/6 lg:w-3/5 md:w-1/2 md:flex hidden bg-[#6c63ff]'>
