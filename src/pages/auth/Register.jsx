@@ -28,7 +28,14 @@ const Register = () => {
                         <Form.Item label="Password" name={"password"} rules={[{ required: true, message: "Password Cannot Be Blank!" }]}>
                             <Input.Password />
                         </Form.Item>
-                        <Form.Item label="Password Again" name={"passwordAgain"} rules={[{ required: true, message: "Password Again Cannot Be Blank!" }]}>
+                        <Form.Item label="Password Again" name={"passwordAgain"} dependencies={["password"]} rules={[{ required: true, message: "Password Again Cannot Be Blank!" }, ({ getFieldValue }) => ({
+                            validator(_, value) {
+                                if (!value || getFieldValue('password') === value) {
+                                    return Promise.resolve();
+                                }
+                                return Promise.reject(new Error("The password that you entered do not match!"));
+                            },
+                        }),]}>
                             <Input.Password />
                         </Form.Item>
                         <Form.Item>
