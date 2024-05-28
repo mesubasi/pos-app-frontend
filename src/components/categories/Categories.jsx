@@ -29,7 +29,7 @@ const Categories = ({ categories, setCategories }) => {
                 <EditOutlined className="md:text-2xl" />
             </li>
             <Add isModalAddOpen={isModalAddOpen} setIsModalAddOpen={setIsModalAddOpen} categories={categories} setCategories={setCategories} />
-            <Edit isModalEditOpen={isModalEditOpen} setIsModalEditOpen={setIsModalEditOpen} />
+            <Edit isModalEditOpen={isModalEditOpen} setIsModalEditOpen={setIsModalEditOpen} categories={categories} setCategories={setCategories} />
         </ul>
     )
 }
