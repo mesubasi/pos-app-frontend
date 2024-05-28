@@ -1,27 +1,15 @@
 //Categories.jsx
 
-import { PlusOutlined } from "@ant-design/icons"
+import { PlusOutlined, EditOutlined } from "@ant-design/icons"
 import { useState } from "react";
-import { Button, Form, Input, Modal, message } from 'antd';
+import Add from "./Add";
 import "./style.css"
+import { Edit } from "./Edit";
 
 
 const Categories = ({ categories, setCategories }) => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [form] = Form.useForm()
-
-    const onFinish = (values) => {
-        try {
-            fetch("http://localhost:5000/api/categories/add-category", {
-                method: "POST", body: JSON.stringify(values), headers: { "Content-type": "application/json; charset=UTF-8" }
-            })
-            message.success("Category Succesfully Added.");
-            form.resetFields()
-            setCategories([...categories, values])
-        } catch (err) {
-            console.log(err);
-        }
-    }
+    const [isModalAddOpen, setIsModalAddOpen] = useState(false);
+    const [isModalEditOpen, setIsModalEditOpen] = useState(false);
 
     return (
         <ul className="flex md:flex-col gap-4 text-lg">
@@ -32,19 +20,16 @@ const Categories = ({ categories, setCategories }) => {
             ))}
             <li
                 className="category-item !bg-purple-800 hover:opacity-90"
-                onClick={() => setIsModalOpen(true)}>
+                onClick={() => setIsModalAddOpen(true)}>
                 <PlusOutlined className="md:text-2xl" />
             </li>
-            <Modal title="Add New Category" open={isModalOpen} onCancel={() => setIsModalOpen(false)} footer={false}>
-                <Form layout="vertical" onFinish={onFinish} form={form}>
-                    <Form.Item name="title" label="Add Category" rules={[{ required: true, message: "Category Field Cannot Be Empty!", }]}>
-                        <Input />
-                    </Form.Item>
-                    <Form.Item className="flex justify-end mb-0">
-                        <Button type="primary" htmlType="submit" >Create</Button>
-                    </Form.Item>
-                </Form>
-            </Modal>
+            <li
+                className="category-item !bg-orange-800 hover:opacity-90"
+                onClick={() => setIsModalEditOpen(true)}>
+                <EditOutlined className="md:text-2xl" />
+            </li>
+            <Add isModalAddOpen={isModalAddOpen} setIsModalAddOpen={setIsModalAddOpen} categories={categories} setCategories={setCategories} />
+            <Edit isModalEditOpen={isModalEditOpen} setIsModalEditOpen={setIsModalEditOpen} />
         </ul>
     )
 }
