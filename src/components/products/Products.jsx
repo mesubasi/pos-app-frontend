@@ -1,6 +1,9 @@
 //Products.jsx
 
 import { useEffect, useState } from "react"
+import ProductItem from "./ProductItem";
+import { PlusOutlined, EditOutlined } from "@ant-design/icons"
+import Add from "./Add";
 
 const Products = () => {
     const [products, setProducts] = useState([]);
@@ -22,16 +25,15 @@ const Products = () => {
     return (
         <div className="products-wrapper grid grid-cols-card gap-4">
             {products.map((item) => (
-                <div className="product-item hover:shadow-lg transition-all border cursor-pointer select-none">
-                    <div className="product-img">
-                        <img src={item.img} alt="" className="h-28 object-cover w-full border-b" />
-                    </div>
-                    <div className="product-info flex flex-col p-3">
-                        <span className="font-bold">{item.title}</span>
-                        <span>{item.price}&nbsp;$</span>
-                    </div>
-                </div>
+                <ProductItem item={item} />
             ))}
+            <div className="product-item hover:shadow-lg transition-all border cursor-pointer select-none bg-purple-800 flex justify-center items-center">
+                <PlusOutlined className="text-white md:text-2xl hover:opacity-90" />
+            </div>
+            <div className="product-item hover:shadow-lg transition-all border cursor-pointer select-none bg-orange-800 flex justify-center items-center">
+                <EditOutlined className="text-white md:text-2xl hover:opacity-90" />
+            </div>
+            <Add />
         </div>
     )
 }
