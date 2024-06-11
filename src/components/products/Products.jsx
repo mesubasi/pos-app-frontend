@@ -26,7 +26,7 @@ const Products = ({ categories }) => {
     return (
         <div className="products-wrapper grid grid-cols-card gap-4">
             {products.map((item) => (
-                <ProductItem item={item} />
+                <ProductItem item={item} key={item._id} />
             ))}
             <div className="product-item hover:shadow-lg transition-all border cursor-pointer select-none bg-purple-800 flex justify-center items-center" onClick={() => setIsModalAddOpen(true)}>
                 <PlusOutlined className="text-white md:text-2xl hover:opacity-90" />
