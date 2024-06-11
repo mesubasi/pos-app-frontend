@@ -14,7 +14,9 @@ const HomePage = () => {
             try {
                 const res = await fetch("http://localhost:5000/api/categories/get-all-category");
                 const data = await res.json();
-                setCategories(data);
+                data && setCategories(data.map((item) => {
+                    return { ...item, value: item.title }
+                }));
             } catch (error) {
                 console.log(error);
             }
