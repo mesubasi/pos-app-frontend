@@ -34,7 +34,7 @@ const Products = ({ categories }) => {
             <div className="product-item hover:shadow-lg transition-all border cursor-pointer select-none bg-orange-800 flex justify-center items-center">
                 <EditOutlined className="text-white md:text-2xl hover:opacity-90" />
             </div>
-            <Add isModalAddOpen={isModalAddOpen} setIsModalAddOpen={setIsModalAddOpen} categories={categories} />
+            <Add isModalAddOpen={isModalAddOpen} setIsModalAddOpen={setIsModalAddOpen} categories={categories} products={products} setProducts={setProducts} />
         </div>
     )
 }
