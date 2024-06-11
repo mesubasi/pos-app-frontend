@@ -6,9 +6,6 @@ import React from 'react'
 const Add = ({ isModalAddOpen, setIsModalAddOpen, categories, products, setProducts }) => {
     const [form] = Form.useForm()
 
-
-    console.log(categories);
-
     const onFinish = (values) => {
         try {
             fetch("http://localhost:5000/api/products/add-product", {
@@ -22,6 +19,7 @@ const Add = ({ isModalAddOpen, setIsModalAddOpen, categories, products, setProdu
                 _id: Math.random(),
                 price: Number(values.price)
             }])
+            setIsModalAddOpen(false)
         } catch (err) {
             console.log(err);
         }
