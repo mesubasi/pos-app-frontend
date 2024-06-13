@@ -6,6 +6,7 @@ import { PlusOutlined, EditOutlined } from "@ant-design/icons"
 import Add from "./Add";
 import { useNavigate } from "react-router-dom";
 
+
 const Products = ({ categories }) => {
     const [isModalAddOpen, setIsModalAddOpen] = useState(false);
     const [products, setProducts] = useState([]);
@@ -33,8 +34,8 @@ const Products = ({ categories }) => {
             <div className="product-item hover:shadow-lg transition-all border cursor-pointer select-none bg-purple-800 flex justify-center items-center hover:opacity-90" onClick={() => setIsModalAddOpen(true)}>
                 <PlusOutlined className="text-white md:text-2xl " />
             </div>
-            <div className="product-item hover:shadow-lg transition-all border cursor-pointer select-none bg-orange-800 flex justify-center items-center hover:opacity-90 min-h-[180px]">
-                <EditOutlined className="text-white md:text-2xl" onClick={() => navigate("/products")} />
+            <div className="product-item hover:shadow-lg transition-all border cursor-pointer select-none bg-orange-800 flex justify-center items-center hover:opacity-90 min-h-[180px]" onClick={() => navigate("products")}>
+                <EditOutlined className="text-white md:text-2xl" />
             </div>
             <Add isModalAddOpen={isModalAddOpen} setIsModalAddOpen={setIsModalAddOpen} categories={categories} products={products} setProducts={setProducts} />
         </div>
