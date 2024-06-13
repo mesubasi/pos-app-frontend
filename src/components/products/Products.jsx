@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const Products = ({ categories }) => {
     const [isModalAddOpen, setIsModalAddOpen] = useState(false);
     const [products, setProducts] = useState([]);
-    const navigate = useNavigatee();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const getProducts = async () => {
