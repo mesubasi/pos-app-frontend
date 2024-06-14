@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 const Edit = ({ categories, setCategories }) => {
     const [products, setProducts] = useState([]);
+    const [isEditModalOpen, setIsModalOpen] = useState([]);
 
     useEffect(() => {
         const getProducts = async () => {
@@ -93,6 +94,34 @@ const Edit = ({ categories, setCategories }) => {
     return (
         <>
             <Table bordered dataSource={products} columns={columns} rowKey={"_id"} scroll={{ x: 1000, y: 600 }} />
+            <Modal title="Add New Product" open={isEditModalOpen} onCancel={() => setIsModalOpen(false)} footer={false}>
+                <Form layout="vertical" onFinish={onFinish} form={form}>
+                    <Form.Item name="title" label="Add Product Name" rules={[{ required: true, message: "Product Field Cannot Be Empty!", }]}>
+                        <Input placeholder='Enter Product Name.' />
+                    </Form.Item>
+                    <Form.Item name="img" label="Add Product Image" rules={[{ required: true, message: "Product Image Field Cannot Be Empty!", }]}>
+                        <Input placeholder='Enter Product Iamge.' />
+                    </Form.Item>
+                    <Form.Item name="price" label="Add Product Price" rules={[{ required: true, message: "Product Price Field Cannot Be Empty!", }]}>
+                        <Input placeholder='Enter Product Price.' />
+                    </Form.Item>
+                    <Form.Item name="category" label="Select Product Category" rules={[{ required: true, message: "Product Category Field Cannot Be Empty!", }]}>
+                        <Select
+                            showSearch
+                            placeholder="Search to Select"
+                            optionFilterProp="children"
+                            filterOption={(input, option) => (option?.title ?? '').includes(input)}
+                            filterSort={(optionA, optionB) =>
+                                (optionA?.title ?? '').toLowerCase().localeCompare((optionB?.title ?? '').toLowerCase())
+                            }
+                            options={categories}
+                        />
+                    </Form.Item>
+                    <Form.Item className="flex justify-end mb-0">
+                        <Button type="primary" htmlType="submit" >Create</Button>
+                    </Form.Item>
+                </Form>
+            </Modal>
         </>
     );
 };
