@@ -1,4 +1,4 @@
-import { Form, Input, Modal, Table, message, Button } from 'antd';
+import { Form, Input, Modal, Table, message, Button, Select } from 'antd';
 import React, { useEffect, useState } from 'react';
 
 const Edit = ({ categories, setCategories }) => {
@@ -91,9 +91,9 @@ const Edit = ({ categories, setCategories }) => {
     ];
 
     return (
-        <Form onFinish={onFinish}>
+        <>
             <Table bordered dataSource={products} columns={columns} rowKey={"_id"} scroll={{ x: 1000, y: 600 }} />
-        </Form>
+        </>
     );
 };
 
