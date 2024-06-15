@@ -43,7 +43,7 @@ const Edit = () => {
                 body: JSON.stringify({ ...values, productId: editingItem._id }),
                 headers: { "Content-type": "application/json; charset=UTF-8" },
             });
-            message.success("Category Successfully Updated!");
+            message.success("Product Successfully Updated!");
             setProducts(categories.map((item) => {
                 if (item._id === values._id) {
                     return { ...item, ...values };
@@ -135,7 +135,7 @@ const Edit = () => {
                         />
                     </Form.Item>
                     <Form.Item className="flex justify-end mb-0">
-                        <Button type="primary" htmlType="submit" >Create</Button>
+                        <Button type="primary" htmlType="submit" >Edit</Button>
                     </Form.Item>
                 </Form>
             </Modal>
