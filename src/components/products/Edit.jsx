@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 const Edit = ({ categories, setCategories }) => {
     const [products, setProducts] = useState([]);
     const [isEditModalOpen, setIsEditModalOpen] = useState([]);
+    const [form] = Form.useForm()
 
     useEffect(() => {
         const getProducts = async () => {
