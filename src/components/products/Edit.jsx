@@ -24,9 +24,11 @@ const Edit = () => {
     useEffect(() => {
         const getCategories = async () => {
             try {
-                const res = await fetch("http://localhost:5000/api/products/get-all-product");
+                const res = await fetch("http://localhost:5000/api/categories/get-all-category");
                 const data = await res.json();
-                setProducts(data);
+                data && setCategories(data.map((item) => {
+                    return { ...item, value: item.title }
+                }));
             } catch (error) {
                 console.log(error);
             }
