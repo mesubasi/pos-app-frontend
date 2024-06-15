@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 const Edit = ({ categories, setCategories }) => {
     const [products, setProducts] = useState([]);
-    const [isEditModalOpen, setIsEditModalOpen] = useState([]);
+    const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [editingItem, setEditingItem] = useState({})
     const [form] = Form.useForm();
 
