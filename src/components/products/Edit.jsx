@@ -40,7 +40,7 @@ const Edit = () => {
         try {
             await fetch("http://localhost:5000/api/products/update-product", {
                 method: "PUT",
-                body: JSON.stringify({ ...values }),
+                body: JSON.stringify({ ...values, productId: editingItem._id }),
                 headers: { "Content-type": "application/json; charset=UTF-8" },
             });
             message.success("Category Successfully Updated!");
