@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 const Edit = ({ categories, setCategories }) => {
     const [products, setProducts] = useState([]);
-    const [isEditModalOpen, setIsModalOpen] = useState([]);
+    const [isEditModalOpen, setIsEditModalOpen] = useState([]);
 
     useEffect(() => {
         const getProducts = async () => {
@@ -94,7 +94,7 @@ const Edit = ({ categories, setCategories }) => {
     return (
         <>
             <Table bordered dataSource={products} columns={columns} rowKey={"_id"} scroll={{ x: 1000, y: 600 }} />
-            <Modal title="Add New Product" open={isEditModalOpen} onCancel={() => setIsModalOpen(false)} footer={false}>
+            <Modal title="Add New Product" open={isEditModalOpen} onCancel={() => setIsEditModalOpen(false)} footer={false}>
                 <Form layout="vertical" onFinish={onFinish} form={form}>
                     <Form.Item name="title" label="Add Product Name" rules={[{ required: true, message: "Product Field Cannot Be Empty!", }]}>
                         <Input placeholder='Enter Product Name.' />
