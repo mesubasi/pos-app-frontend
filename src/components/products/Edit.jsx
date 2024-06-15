@@ -45,11 +45,12 @@ const Edit = () => {
             });
             message.success("Product Successfully Updated!");
             setProducts(products.map((item) => {
-                if (item._id === editingItem._id) { //Send all values if it is the same product as the one I clicked on
-                    return values;
+                if (item._id === editingItem._id) { //  If it's the same product
+                    return { ...item, ...values }; // Send all your items and values
                 }
                 return item; //If not, send the item itself
             }));
+            setIsEditModalOpen(false);
         } catch (err) {
             message.error("Something went wrong!");
             console.log(err);
