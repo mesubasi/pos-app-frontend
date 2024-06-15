@@ -85,7 +85,6 @@ const Edit = ({ categories, setCategories }) => {
             render: (_, record) => (
                 <div>
                     <Button type="link" className="pl-0" onClick={() => setIsEditModalOpen(true)}>Edit</Button>
-                    <Button type="link" htmlType="submit" className="text-gray-500">Save</Button>
                     <Button type="link" danger onClick={() => deleteCategory(record._id)}>Delete</Button>
                 </div>
             )
