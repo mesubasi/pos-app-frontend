@@ -44,7 +44,7 @@ const Edit = () => {
                 headers: { "Content-type": "application/json; charset=UTF-8" },
             });
             message.success("Category Successfully Updated!");
-            setCategories(categories.map((item) => {
+            setProducts(categories.map((item) => {
                 if (item._id === values._id) {
                     return { ...item, ...values };
                 }
