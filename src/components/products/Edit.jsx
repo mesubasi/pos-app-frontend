@@ -45,10 +45,10 @@ const Edit = () => {
             });
             message.success("Product Successfully Updated!");
             setProducts(products.map((item) => {
-                if (item._id === values._id) {
-                    return { ...item, ...values };
+                if (item._id === editingItem._id) { //Send all values if it is the same product as the one I clicked on
+                    return values;
                 }
-                return item;
+                return item; //If not, send the item itself
             }));
         } catch (err) {
             message.error("Something went wrong!");
