@@ -84,7 +84,7 @@ const Edit = ({ categories, setCategories }) => {
             width: "8%",
             render: (_, record) => (
                 <div>
-                    <Button type="link" className="pl-0">Edit</Button>
+                    <Button type="link" className="pl-0" onClick={() => setIsEditModalOpen(true)}>Edit</Button>
                     <Button type="link" htmlType="submit" className="text-gray-500">Save</Button>
                     <Button type="link" danger onClick={() => deleteCategory(record._id)}>Delete</Button>
                 </div>
@@ -95,7 +95,7 @@ const Edit = ({ categories, setCategories }) => {
     return (
         <>
             <Table bordered dataSource={products} columns={columns} rowKey={"_id"} scroll={{ x: 1000, y: 600 }} />
-            <Modal title="Add New Product" open={isEditModalOpen} onCancel={() => setIsEditModalOpen(false)} footer={false}>
+            <Modal title="Add New Product" open={isEditModalOpen} onCancel={() => setIsEditModalOpen(true)} footer={false}>
                 <Form layout="vertical" onFinish={onFinish} form={form}>
                     <Form.Item name="title" label="Add Product Name" rules={[{ required: true, message: "Product Field Cannot Be Empty!", }]}>
                         <Input placeholder='Enter Product Name.' />
