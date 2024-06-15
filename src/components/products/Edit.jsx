@@ -20,6 +20,19 @@ const Edit = ({ categories, setCategories }) => {
         getProducts();
     }, []);
 
+    useEffect(() => {
+        const getCategories = async () => {
+            try {
+                const res = await fetch("http://localhost:5000/api/products/get-all-product");
+                const data = await res.json();
+                setProducts(data);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        getCategories();
+    }, []);
+
     const onFinish = async (values) => {
         try {
             await fetch("http://localhost:5000/api/products/update-product", {
