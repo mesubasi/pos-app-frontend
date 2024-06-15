@@ -22,7 +22,7 @@ const Edit = ({ categories, setCategories }) => {
 
     const onFinish = async (values) => {
         try {
-            await fetch("http://localhost:5000/api/categories/update-category", {
+            await fetch("http://localhost:5000/api/products/update-product", {
                 method: "PUT",
                 body: JSON.stringify({ ...values }),
                 headers: { "Content-type": "application/json; charset=UTF-8" },
