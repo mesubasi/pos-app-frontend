@@ -1,8 +1,9 @@
 import { Form, Input, Modal, Table, message, Button, Select } from 'antd';
 import React, { useEffect, useState } from 'react';
 
-const Edit = ({ categories, setCategories }) => {
+const Edit = () => {
     const [products, setProducts] = useState([]);
+    const [categories, setCategories] = useState([]);
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [editingItem, setEditingItem] = useState({})
     const [form] = Form.useForm();
