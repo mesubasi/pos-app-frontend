@@ -57,15 +57,16 @@ const Edit = () => {
         }
     };
 
-    const deleteCategory = async (id) => {
+    const deleteProduct = async (id) => {
         if (window.confirm("Are you sure?")) {
             try {
                 await fetch(`http://localhost:5000/api/products/delete-product`, {
                     method: "DELETE",
+                    body: JSON.stringify({ productId: id }),
                     headers: { "Content-type": "application/json; charset=UTF-8" },
                 });
                 message.success("Category Deleted Successfully");
-                setCategories(categories.filter((item) => item._id !== id));
+                setProducts(products.filter((item) => item._id !== id));
             } catch (err) {
                 message.error("Something went wrong!");
                 console.log(err);
@@ -103,7 +104,7 @@ const Edit = () => {
             render: (_, record) => (
                 <div>
                     <Button type="link" className="pl-0" onClick={() => { setIsEditModalOpen(true); setEditingItem(record); }}>Edit</Button>
-                    <Button type="link" danger onClick={() => deleteCategory(record._id)}>Delete</Button>
+                    <Button type="link" danger onClick={() => deleteProduct(record._id)}>Delete</Button>
                 </div>
             )
         }
