@@ -65,7 +65,7 @@ const Edit = () => {
                     body: JSON.stringify({ productId: id }),
                     headers: { "Content-type": "application/json; charset=UTF-8" },
                 });
-                message.success("Category Deleted Successfully");
+                message.success("Product Deleted Successfully");
                 setProducts(products.filter((item) => item._id !== id));
             } catch (err) {
                 message.error("Something went wrong!");
