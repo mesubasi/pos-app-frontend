@@ -60,7 +60,7 @@ const Edit = () => {
     const deleteCategory = async (id) => {
         if (window.confirm("Are you sure?")) {
             try {
-                await fetch(`http://localhost:5000/api/categories/delete-category/${id}`, {
+                await fetch(`http://localhost:5000/api/products/delete-product`, {
                     method: "DELETE",
                     headers: { "Content-type": "application/json; charset=UTF-8" },
                 });
