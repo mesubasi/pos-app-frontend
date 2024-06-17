@@ -1,6 +1,9 @@
-import { addProduct } from "../../redux/cartSlice"
+import { addProduct } from "../../redux/cartSlice";
+import { useDispatch } from "react-redux";
 
 const ProductItem = ({ item }) => {
+    const dispatch = useDispatch();
+
     return (
         <div className="product-item hover:shadow-lg transition-all border cursor-pointer select-none">
             <div className="product-img">
