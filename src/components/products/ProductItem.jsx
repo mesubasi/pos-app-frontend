@@ -4,8 +4,12 @@ import { useDispatch } from "react-redux";
 const ProductItem = ({ item }) => {
     const dispatch = useDispatch();
 
+    const handleClick = () => {
+        dispatch(addProduct(item));
+    }
+
     return (
-        <div className="product-item hover:shadow-lg transition-all border cursor-pointer select-none">
+        <div className="product-item hover:shadow-lg transition-all border cursor-pointer select-none" onClick={handleClick}>
             <div className="product-img">
                 <img src={item.img} alt="" className="h-28 object-cover w-full border-b" />
             </div>
