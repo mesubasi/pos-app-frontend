@@ -5,7 +5,11 @@ const cartSlice = createSlice({
   initialState: {
     cartItems: [],
   },
-  reducers: {},
+  reducers: {
+    addProduct: (state, action) => {
+      state.cartItems.push(action.payload);
+    },
+  },
 });
 
 export default cartSlice.reducer;
