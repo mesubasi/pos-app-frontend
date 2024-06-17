@@ -1,4 +1,4 @@
-import React from 'react'
+import { addProduct } from "../../redux/cartSlice"
 
 const ProductItem = ({ item }) => {
     return (
