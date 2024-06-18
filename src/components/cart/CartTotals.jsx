@@ -3,7 +3,7 @@
 import { Button } from "antd";
 import { ClearOutlined, PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons"
 import { useSelector, useDispatch } from "react-redux";
-import { deleteCart } from "../../redux/cartSlice";
+import { deleteCart, addProduct } from "../../redux/cartSlice";
 
 const CartTotals = () => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -14,6 +14,10 @@ const CartTotals = () => {
       dispatch(deleteCart(item));
     }
   };
+
+  const handleClick = (item) => {
+    dispatch(addProduct({ ...item, quantity: 1 }));
+  }
 
   return (
     <div className="cart h-full flex flex-col max-h-[calc(100vh_-_90px)]">
@@ -29,7 +33,7 @@ const CartTotals = () => {
               </div>
             </div>
             <div className="flex items-center">
-              <Button type="primary" size="small" className="w-full flex items-center justify-center rounded-full" icon={<PlusCircleOutlined />} />
+              <Button type="primary" size="small" className="w-full flex items-center justify-center rounded-full" onClick={() => handleClick(item)} icon={<PlusCircleOutlined />} />
               <span className="px-1 font-bold">{item.quantity}</span>
               <Button type="primary" size="small" className="w-full flex items-center justify-center rounded-full" icon={<MinusCircleOutlined />} />
             </div>
