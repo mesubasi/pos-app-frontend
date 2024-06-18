@@ -21,8 +21,8 @@ const cartSlice = createSlice({
     },
 
     deleteProduct: (state, action) => {
-      const findCartItem = state.cartItems.find(
-        (item) => item._id === action.payload._id
+      state.cartItems = state.cartItems.find(
+        (item) => item._id !== action.payload._id
       );
     },
   },
