@@ -1,21 +1,22 @@
 //CartTotals.jsx
 
-import { Button } from "antd"
+import { Button } from "antd";
 import { ClearOutlined, PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons"
-import { useSelector, useDispatch } from "react-redux"
+import { useSelector, useDispatch } from "react-redux";
+import { deleteCart } from "../../redux/cartSlice";
 
 const CartTotals = () => {
-  const cart = useSelector((state) => state.cart);
+  const { cartItems } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
   return (
     <div className="cart h-full flex flex-col max-h-[calc(100vh_-_90px)]">
       <h2 className="text-white bg-blue-600 text-center py-4 font-bold tracking-wide">Products in Cart</h2>
       <ul className="cart-items px-2 flex flex-col gap-y-3 py-2 overflow-y-auto">
-        {cart.cartItems.map((item) => (
+        {cartItems.map((item) => (
           <li className="cart-item flex justify-between" key={item._id}>
             <div className="flex items-center gap-x-">
-              <img src={item.img} alt="" className="w-16 h-16 object-cover cursor-pointer" />
+              <img src={item.img} alt="" className="w-16 h-16 object-cover cursor-pointer" onClick={() => dispatch(deleteCart(item))} />
               <div className="flex flex-col ml-2">
                 <b>{item.title}</b>
                 <span>{item.price}$ x {item.quantity}</span>
