@@ -2,8 +2,11 @@
 
 import { Button } from "antd"
 import { ClearOutlined, PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons"
+import { useSelector } from "react-redux"
 
 const CartTotals = () => {
+  const cart = useSelector((state) => state.cart);
+
   return (
     <div className="cart h-full flex flex-col max-h-[calc(100vh_-_90px)]">
       <h2 className="text-white bg-blue-600 text-center py-4 font-bold tracking-wide">Products in Cart</h2>
