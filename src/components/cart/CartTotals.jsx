@@ -9,6 +9,12 @@ const CartTotals = () => {
   const { cartItems } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
+  const Click = (item) => {
+    if (window.confirm("Are you sure you want to delete this item?")) {
+      dispatch(deleteCart(item));
+    }
+  };
+
   return (
     <div className="cart h-full flex flex-col max-h-[calc(100vh_-_90px)]">
       <h2 className="text-white bg-blue-600 text-center py-4 font-bold tracking-wide">Products in Cart</h2>
@@ -16,7 +22,7 @@ const CartTotals = () => {
         {cartItems.map((item) => (
           <li className="cart-item flex justify-between" key={item._id}>
             <div className="flex items-center gap-x-">
-              <img src={item.img} alt="" className="w-16 h-16 object-cover cursor-pointer" onClick={() => dispatch(deleteCart(item))} />
+              <img src={item.img} alt="" className="w-16 h-16 object-cover cursor-pointer" onClick={() => Click(item)} />
               <div className="flex flex-col ml-2">
                 <b>{item.title}</b>
                 <span>{item.price}$ x {item.quantity}</span>
