@@ -2,10 +2,11 @@
 
 import { Button } from "antd"
 import { ClearOutlined, PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 
 const CartTotals = () => {
   const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
 
   return (
     <div className="cart h-full flex flex-col max-h-[calc(100vh_-_90px)]">
