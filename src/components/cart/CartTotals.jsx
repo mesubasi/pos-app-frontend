@@ -9,13 +9,13 @@ const CartTotals = () => {
   const { cartItems } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
-  const Click = (item) => {
+  const deleteClick = (item) => {
     if (window.confirm("Are you sure you want to delete this item?")) {
       dispatch(deleteCart(item));
     }
   };
 
-  const handleClick = (item) => {
+  const addClick = (item) => {
     dispatch(addProduct({ ...item, quantity: 1 }));
   }
 
@@ -26,14 +26,14 @@ const CartTotals = () => {
         {cartItems.map((item) => (
           <li className="cart-item flex justify-between" key={item._id}>
             <div className="flex items-center gap-x-">
-              <img src={item.img} alt="" className="w-16 h-16 object-cover cursor-pointer" onClick={() => Click(item)} />
+              <img src={item.img} alt="" className="w-16 h-16 object-cover cursor-pointer" onClick={() => deleteClick(item)} />
               <div className="flex flex-col ml-2">
                 <b>{item.title}</b>
                 <span>{item.price}$ x {item.quantity}</span>
               </div>
             </div>
             <div className="flex items-center">
-              <Button type="primary" size="small" className="w-full flex items-center justify-center rounded-full" onClick={() => handleClick(item)} icon={<PlusCircleOutlined />} />
+              <Button type="primary" size="small" className="w-full flex items-center justify-center rounded-full" onClick={() => addClick(item)} icon={<PlusCircleOutlined />} />
               <span className="px-1 font-bold">{item.quantity}</span>
               <Button type="primary" size="small" className="w-full flex items-center justify-center rounded-full" icon={<MinusCircleOutlined />} />
             </div>
