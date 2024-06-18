@@ -20,7 +20,7 @@ const cartSlice = createSlice({
       }
     },
 
-    deleteProduct: (state, action) => {
+    deleteCart: (state, action) => {
       state.cartItems = state.cartItems.find(
         (item) => item._id !== action.payload._id
       );
@@ -28,5 +28,5 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addProduct, deleteProduct } = cartSlice.actions;
+export const { addProduct, deleteCart } = cartSlice.actions;
 export default cartSlice.reducer;
