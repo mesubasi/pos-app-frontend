@@ -17,12 +17,12 @@ const CartTotals = () => {
               <img src={item.img} alt="" className="w-16 h-16 object-cover" />
               <div className="flex flex-col ml-2">
                 <b>{item.title}</b>
-                <span>{item.price}$ x 2</span>
+                <span>{item.price}$ x {item.quantity}</span>
               </div>
             </div>
             <div className="flex items-center">
               <Button type="primary" size="small" className="w-full flex items-center justify-center rounded-full" icon={<PlusCircleOutlined />} />
-              <span className="px-1 font-bold">1</span>
+              <span className="px-1 font-bold">{item.quantity}</span>
               <Button type="primary" size="small" className="w-full flex items-center justify-center rounded-full" icon={<MinusCircleOutlined />} />
             </div>
           </li>
