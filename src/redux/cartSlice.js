@@ -19,8 +19,14 @@ const cartSlice = createSlice({
         state.cartItems.push(action.payload);
       }
     },
+
+    deleteProduct: (state, action) => {
+      const findCartItem = state.cartItems.find(
+        (item) => item._id === action.payload._id
+      );
+    },
   },
 });
 
-export const { addProduct } = cartSlice.actions;
+export const { addProduct, deleteProduct } = cartSlice.actions;
 export default cartSlice.reducer;
