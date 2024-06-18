@@ -15,7 +15,7 @@ const CartTotals = () => {
         {cart.cartItems.map((item) => (
           <li className="cart-item flex justify-between" key={item._id}>
             <div className="flex items-center gap-x-">
-              <img src={item.img} alt="" className="w-16 h-16 object-cover" />
+              <img src={item.img} alt="" className="w-16 h-16 object-cover cursor-pointer" />
               <div className="flex flex-col ml-2">
                 <b>{item.title}</b>
                 <span>{item.price}$ x {item.quantity}</span>
