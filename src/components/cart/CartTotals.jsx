@@ -19,6 +19,10 @@ const CartTotals = () => {
     dispatch(increase(item));
   }
 
+  const decreaseClick = (item) => {
+    dispatch(decrease(item));
+  }
+
   return (
     <div className="cart h-full flex flex-col max-h-[calc(100vh_-_90px)]">
       <h2 className="text-white bg-blue-600 text-center py-4 font-bold tracking-wide">Products in Cart</h2>
@@ -35,7 +39,7 @@ const CartTotals = () => {
             <div className="flex items-center">
               <Button type="primary" size="small" className="w-full flex items-center justify-center rounded-full" onClick={() => addClick(item)} icon={<PlusCircleOutlined />} />
               <span className="px-1 font-bold">{item.quantity}</span>
-              <Button type="primary" size="small" className="w-full flex items-center justify-center rounded-full" icon={<MinusCircleOutlined />} />
+              <Button type="primary" size="small" className="w-full flex items-center justify-center rounded-full" onClick={() => decreaseClick(item)} icon={<MinusCircleOutlined />} />
             </div>
           </li>
         ))}
