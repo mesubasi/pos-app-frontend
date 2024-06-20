@@ -28,6 +28,13 @@ const cartSlice = createSlice({
       );
       state.total -= action.payload.price * action.payload.quantity;
     },
+
+    increase: (state, action) => {
+      const cartItem = state.cartItems.find(
+        (item) => item._id === action.payload._id
+      );
+      cartItem.quantity++;
+    },
   },
 });
 
