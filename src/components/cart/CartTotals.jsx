@@ -29,7 +29,7 @@ const CartTotals = () => {
       <ul className="cart-items px-2 flex flex-col gap-y-3 py-2 overflow-y-auto">
         {cart.cartItems.length > 0 ? cart.cartItems.map((item) => (
           <li className="cart-item flex justify-between" key={item._id}>
-            <div className="flex items-center gap-x-">
+            <div className="flex items-center">
               <img src={item.img} alt="" className="w-16 h-16 object-cover cursor-pointer" onClick={() => deleteClick(item)} />
               <div className="flex flex-col ml-2">
                 <b>{item.title}</b>
@@ -37,8 +37,8 @@ const CartTotals = () => {
               </div>
             </div>
             <div className="flex items-center">
-              <Button type="primary" size="small" className="w-full flex items-center justify-center rounded-full" onClick={() => addClick(item)} icon={<PlusCircleOutlined />} />
-              <span className="px-1 font-bold">{item.quantity}</span>
+              <Button type="primary" size="small" className="w-full items-center justify-center rounded-full" onClick={() => addClick(item)} icon={<PlusCircleOutlined />} />
+              <span className="font-bold w-12 inline-block text-center">{item.quantity}</span>
               <Button type="primary" size="small" className="w-full flex items-center justify-center rounded-full" onClick={() => decreaseClick(item)} icon={<MinusCircleOutlined />} />
             </div>
           </li>
