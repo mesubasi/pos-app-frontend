@@ -14,17 +14,17 @@ const Categories = ({ categories, setCategories }) => {
     return (
         <ul className="flex md:flex-col gap-4 text-lg">
             {categories.map((item) => (
-                <li key={item._id} className="bg-green-700 text-white hover:bg-pink-700 transition-all px-6 py-10 cursor-pointer text-center min-w-[145px]">
+                <li key={item._id} className="rounded-md bg-green-700 text-white hover:bg-pink-700 transition-all px-6 py-10 cursor-pointer text-center min-w-[145px]">
                     <span>{item.title}</span>
                 </li>
             ))}
             <li
-                className="category-item !bg-purple-800 hover:opacity-90"
+                className="category-item rounded-md !bg-purple-800 hover:opacity-90"
                 onClick={() => setIsModalAddOpen(true)}>
                 <PlusOutlined className="md:text-2xl" />
             </li>
             <li
-                className="category-item !bg-orange-800 hover:opacity-90"
+                className="category-item rounded-md !bg-orange-800 hover:opacity-90"
                 onClick={() => setIsModalEditOpen(true)}>
                 <EditOutlined className="md:text-2xl" />
             </li>

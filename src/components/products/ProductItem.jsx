@@ -10,7 +10,7 @@ const ProductItem = ({ item }) => {
     }
 
     return (
-        <div className="product-item hover:shadow-lg transition-all border cursor-pointer select-none" onClick={handleClick}>
+        <div className="p-1 rounded-md bg-[#4286f4] product-item hover:shadow-lg transition-all border cursor-pointer select-none" onClick={handleClick}>
             <div className="product-img">
                 <img src={item.img} alt="" className="h-28 object-cover w-full border-b" />
             </div>
