@@ -5,7 +5,7 @@ const cartSlice = createSlice({
   initialState: {
     cartItems: [],
     total: 0,
-    price: 0,
+    tax: 8,
   },
   reducers: {
     addProduct: (state, action) => {
