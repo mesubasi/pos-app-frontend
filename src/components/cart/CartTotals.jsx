@@ -9,12 +9,6 @@ const CartTotals = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
-  const deleteClick = (item) => {
-    if (window.confirm("Are you sure you want to delete this item?")) {
-      dispatch(deleteCart(item));
-    }
-  };
-
   const addClick = (item) => {
     dispatch(increase(item));
   }
