@@ -44,7 +44,7 @@ const CartTotals = () => {
         <div className="border-t border-b">
           <div className="flex justify-between p-2">
             <b>Subtotals</b>
-            <span>{(cart.total) > 0 ? (cart.total).toFixed(2) : 0}₺</span>
+            <span>{(cart.total) > 0 ? (cart.total).toFixed(2) : 0}$</span>
           </div>
           <div className="flex justify-between p-2">
             <b>VAT %{cart.tax}</b>
