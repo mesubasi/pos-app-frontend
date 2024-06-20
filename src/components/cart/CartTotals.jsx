@@ -44,17 +44,17 @@ const CartTotals = () => {
         <div className="border-t border-b">
           <div className="flex justify-between p-2">
             <b>Subtotals</b>
-            <span>{cart.total}₺</span>
+            <span>{(cart.total).toFixed(2)}₺</span>
           </div>
           <div className="flex justify-between p-2">
             <b>VAT %{cart.tax}</b>
-            <span className="text-red-700">+{(cart.total * cart.tax) / 100}$</span>
+            <span className="text-red-700">+{((cart.total * cart.tax) / 100).toFixed(2)}$</span>
           </div>
         </div>
         <div className="border-b mt-4">
           <div className="flex justify-between p-2">
             <b className="text-xl font-bold text-green-500">Total</b>
-            <span className="text-xl">{cart.total + (cart.total * cart.tax) / 100}$</span>
+            <span className="text-xl">{(cart.total + (cart.total * cart.tax) / 100).toFixed(2)}$</span>
           </div>
         </div>
         <div className="py-4 px-2">
