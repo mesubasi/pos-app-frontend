@@ -20,7 +20,13 @@ const CartTotals = () => {
   }
 
   const decreaseClick = (item) => {
-    dispatch(decrease(item));
+    if (item.quantity === 1) {
+      if (window.confirm("Are you sure want to delete this item?")) {
+        dispatch(decrease(item));
+      }
+    } if (item.quantity > 1) {
+      dispatch(decrease(item));
+    }
   }
 
   return (
