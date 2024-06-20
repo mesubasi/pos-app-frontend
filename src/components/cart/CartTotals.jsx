@@ -27,7 +27,7 @@ const CartTotals = () => {
     <div className="cart h-full flex flex-col max-h-[calc(100vh_-_90px)]">
       <h2 className="text-white bg-blue-600 text-center py-4 font-bold tracking-wide">Products in Cart</h2>
       <ul className="cart-items px-2 flex flex-col gap-y-3 py-2 overflow-y-auto">
-        {cart.cartItems.map((item) => (
+        {cart.cartItems.length > 0 ? cart.cartItems.map((item) => (
           <li className="cart-item flex justify-between" key={item._id}>
             <div className="flex items-center gap-x-">
               <img src={item.img} alt="" className="w-16 h-16 object-cover cursor-pointer" onClick={() => deleteClick(item)} />
@@ -42,7 +42,7 @@ const CartTotals = () => {
               <Button type="primary" size="small" className="w-full flex items-center justify-center rounded-full" onClick={() => decreaseClick(item)} icon={<MinusCircleOutlined />} />
             </div>
           </li>
-        ))}
+        )) : "There are no products in the cart..."}
       </ul>
       <div className="cart-totals mt-auto">
         <div className="border-t border-b">
