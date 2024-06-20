@@ -42,7 +42,7 @@ const CartTotals = () => {
               <Button type="primary" size="small" className="w-full flex items-center justify-center rounded-full" onClick={() => decreaseClick(item)} icon={<MinusCircleOutlined />} />
             </div>
           </li>
-        )) : <span className="text-center animate-bounce">Empty Cart...</span>}
+        )) : "There are no products in the cart..."}
       </ul>
       <div className="cart-totals mt-auto">
         <div className="border-t border-b">
