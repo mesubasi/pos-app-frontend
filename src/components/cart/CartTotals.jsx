@@ -3,7 +3,7 @@
 import { Button } from "antd";
 import { ClearOutlined, PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons"
 import { useSelector, useDispatch } from "react-redux";
-import { deleteCart, addProduct, increase } from "../../redux/cartSlice";
+import { deleteCart, increase, decrease } from "../../redux/cartSlice";
 
 const CartTotals = () => {
   const cart = useSelector((state) => state.cart);
