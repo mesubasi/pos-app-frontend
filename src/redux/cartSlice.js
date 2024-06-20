@@ -18,6 +18,8 @@ const cartSlice = createSlice({
       } else {
         state.cartItems.push(action.payload);
       }
+
+      state.total += action.payload.price;
     },
 
     deleteCart: (state, action) => {
