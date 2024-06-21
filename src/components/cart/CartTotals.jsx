@@ -1,6 +1,6 @@
 //CartTotals.jsx
 
-import { Button } from "antd";
+import { Button, message } from "antd";
 import { ClearOutlined, PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons"
 import { useSelector, useDispatch } from "react-redux";
 import { deleteCart, increase, decrease, reset } from "../../redux/cartSlice";
@@ -26,6 +26,7 @@ const CartTotals = () => {
   const clearCart = () => {
     if (window.confirm("Are You Sure?")) {
       dispatch(reset());
+      message.success("Cart Succesfully Clear.")
     }
   }
 
