@@ -8,8 +8,9 @@ This repository contains the front end of the MERN Stack POS Application. The fr
 - [Usage](#usage)
 - [Features](#features)
 - [Contributing](#contributing)
+- [Technologies Used](#technologies-used)
+- [Images/Screenshots](#imagesscreenshots)
 - [License](#license)
-- [Contact](#contact)
 
 ## Installation
 
