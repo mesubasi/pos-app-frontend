@@ -63,19 +63,19 @@ Here are some screenshots of the application:
 
 ### Login Page
 
-![Login Page](path/to/login-screenshot.png)
+![Login Page]()
 
 ### Dashboard
 
-![Dashboard](path/to/dashboard-screenshot.png)
+![Dashboard]()
 
 ### Inventory Management
 
-![Inventory Management](path/to/inventory-screenshot.png)
+![Inventory Management]()
 
 ### Sales Management
 
-![Sales Management](path/to/sales-screenshot.png)
+![Sales Management]()
 
 ## Contributing
 
