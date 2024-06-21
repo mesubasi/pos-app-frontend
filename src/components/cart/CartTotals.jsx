@@ -71,8 +71,8 @@ const CartTotals = () => {
           </div>
         </div>
         <div className="py-4 px-2">
-          <Button type="primary" size="large" className="w-full">Create Order</Button>
-          <Button type="primary" size="large" className="w-full mt-2 flex items-center justify-center" danger onClick={clearCart} icon={<ClearOutlined />}>Clear</Button>
+          <Button type="primary" size="large" className="w-full" disabled={cart.cartItems.length === 0}>Create Order</Button>
+          <Button type="primary" size="large" className="w-full mt-2 flex items-center justify-center" disabled={cart.cartItems.length === 0} danger onClick={clearCart} icon={<ClearOutlined />}>Clear</Button>
         </div>
       </div>
     </div>
