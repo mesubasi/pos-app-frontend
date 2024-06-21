@@ -3,7 +3,7 @@
 import { Button } from "antd";
 import { ClearOutlined, PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons"
 import { useSelector, useDispatch } from "react-redux";
-import { deleteCart, increase, decrease } from "../../redux/cartSlice";
+import { deleteCart, increase, decrease, reset } from "../../redux/cartSlice";
 
 const CartTotals = () => {
   const cart = useSelector((state) => state.cart);
@@ -20,6 +20,12 @@ const CartTotals = () => {
       }
     } if (item.quantity > 1) {
       dispatch(decrease(item));
+    }
+  }
+
+  const clearCart = () => {
+    if (window.confirm("Are You Sure?")) {
+      dispatch(reset());
     }
   }
 
@@ -63,7 +69,7 @@ const CartTotals = () => {
         </div>
         <div className="py-4 px-2">
           <Button type="primary" size="large" className="w-full">Create Order</Button>
-          <Button type="primary" size="large" className="w-full mt-2 flex items-center justify-center" danger icon={<ClearOutlined />}>Clear</Button>
+          <Button type="primary" size="large" className="w-full mt-2 flex items-center justify-center" danger onClick={clearCart} icon={<ClearOutlined />}>Clear</Button>
         </div>
       </div>
     </div>
