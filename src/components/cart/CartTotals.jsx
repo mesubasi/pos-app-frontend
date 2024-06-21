@@ -11,12 +11,14 @@ const CartTotals = () => {
 
   const addClick = (item) => {
     dispatch(increase(item));
+    message.success("Number of Products Increased!");
   }
 
   const decreaseClick = (item) => {
     if (item.quantity === 1) {
       if (window.confirm("Are you sure want to delete this item?")) {
         dispatch(decrease(item));
+        message.error("Product Deleted From The Cart!");
       }
     } if (item.quantity > 1) {
       dispatch(decrease(item));
@@ -26,7 +28,7 @@ const CartTotals = () => {
   const clearCart = () => {
     if (window.confirm("Are You Sure?")) {
       dispatch(reset());
-      message.success("Cart Succesfully Clear.")
+      message.success("Cart Succesfully Clear.");
     }
   }
 
