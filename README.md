@@ -16,8 +16,8 @@ This repository contains the front end of the MERN Stack POS Application. The fr
 1. **Clone the repository:**
 
    ```sh
-   git clone https://github.com/yourusername/pos-frontend.git
-   cd pos-frontend
+   git clone https://github.com/mesubasi/pos-app-frontend.git
+   cd pos-app-frontend
    ```
 
 2. **Install dependencies:**
@@ -45,6 +45,36 @@ This repository contains the front end of the MERN Stack POS Application. The fr
 - **Inventory Management:** Add, update, and delete inventory items.
 - **Sales Management:** Track and manage sales transactions.
 - **Reports:** Generate sales and inventory reports.
+
+## Technologies Used
+
+- **React**
+- **Vite**
+- **Redux**
+- **React Router**
+- **Ant Design**
+- **Tailwind CSS**
+- **Google Fonts**
+
+## Images/Screenshots
+
+Here are some screenshots of the application:
+
+### Login Page
+
+![Login Page](path/to/login-screenshot.png)
+
+### Dashboard
+
+![Dashboard](path/to/dashboard-screenshot.png)
+
+### Inventory Management
+
+![Inventory Management](path/to/inventory-screenshot.png)
+
+### Sales Management
+
+![Sales Management](path/to/sales-screenshot.png)
 
 ## Contributing
 
