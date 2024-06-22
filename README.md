@@ -30,7 +30,7 @@ This repository contains the front end of the MERN Stack POS Application. The fr
 
 3. **Set up environment variables:**
 
-Create a .env file in the root of the project and add the following variables:
+   Create a .env file in the root of the project and add the following variables:
 
    ```sh
    VITE_API_URL=http://localhost:5000/api
@@ -103,9 +103,9 @@ Contributions are welcome! Please follow these steps:
 
 The following environment variables are required for the application to run:
 
-VITE_API_URL: The base URL for the API.
-VITE_AUTH_SECRET: The secret key for authentication.
-VITE_OTHER_CONFIG: Any other configuration needed.
+- VITE_API_URL: The base URL for the API.
+- VITE_AUTH_SECRET: The secret key for authentication.
+- VITE_OTHER_CONFIG: Any other configuration needed.
 
 ## License
 
