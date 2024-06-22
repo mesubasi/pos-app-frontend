@@ -10,6 +10,7 @@ This repository contains the front end of the MERN Stack POS Application. The fr
 - [Contributing](#contributing)
 - [Technologies Used](#technologies-used)
 - [Images/Screenshots](#imagesscreenshots)
+- [Environment Variables](#environmentvariables)
 - [License](#license)
 
 ## Installation
@@ -27,7 +28,17 @@ This repository contains the front end of the MERN Stack POS Application. The fr
    npm install
    ```
 
-3. **Start the development server:**
+3. **Set up environment variables:**
+
+Create a .env file in the root of the project and add the following variables:
+
+```sh
+VITE_API_URL=http://localhost:5000/api
+VITE_AUTH_SECRET=your-auth-secret
+VITE_OTHER_CONFIG=your-other-config
+```
+
+4. **Start the development server:**
 
    ```sh
    npm run dev
@@ -87,6 +98,13 @@ Contributions are welcome! Please follow these steps:
 4. Commit your changes (`git commit -m 'Add new feature'`).
 5. Push to the branch (`git push origin feature-branch`).
 6. Open a Pull Request.
+
+## Environment Variables
+The following environment variables are required for the application to run:
+
+VITE_API_URL: The base URL for the API.
+VITE_AUTH_SECRET: The secret key for authentication.
+VITE_OTHER_CONFIG: Any other configuration needed.
 
 ## License
 
