@@ -3,40 +3,43 @@ import Header from '../components/header/Header';
 import { Card } from 'antd';
 import { useState } from 'react';
 import CreateInvoice from '../components/cart/CreateInvoice';
+import { useSelector } from 'react-redux';
 
 
 const CartPage = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const dataSource = [
-        {
-            key: '1',
-            name: 'Mike',
-            age: 32,
-            address: '10 Downing Street',
-        },
-        {
-            key: '2',
-            name: 'John',
-            age: 42,
-            address: '10 Downing Street',
-        },
-    ];
+    const cart = useSelector((state) => state.cart);
 
     const columns = [
         {
-            title: 'Name',
-            dataIndex: 'name',
-            key: 'name',
+            title: 'Product Image',
+            dataIndex: 'img',
+            key: 'img',
+            width: "150px",
+            render: (text) => {
+                return (<img src={text} alt='' className='w-full h-20 object-cover' />)
+            }
         },
         {
-            title: 'Age',
-            dataIndex: 'age',
-            key: 'age',
+            title: 'Product Title',
+            dataIndex: 'title',
+            key: 'title',
+            width: "150px",
         },
         {
-            title: 'Address',
-            dataIndex: 'address',
-            key: 'address',
+            title: 'Category',
+            dataIndex: 'category',
+            key: 'category',
+        },
+        {
+            title: 'Product Price',
+            dataIndex: 'price',
+            key: 'price',
+        },
+        {
+            title: 'Product Quantity',
+            dataIndex: 'category',
+            key: 'category',
         },
     ];
 
@@ -44,7 +47,7 @@ const CartPage = () => {
         <>
             <Header />
             <div className="px-6">
-                <Table dataSource={dataSource} columns={columns} bordered pagination={false} />
+                <Table dataSource={cart.cartItems} columns={columns} bordered pagination={false} />
                 <div className="cart-total flex justify-end mt-4">
                     <Card className="w-72 border-2">
                         <div className="flex justify-between">
