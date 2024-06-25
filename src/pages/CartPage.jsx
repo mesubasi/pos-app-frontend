@@ -35,11 +35,25 @@ const CartPage = () => {
             title: 'Product Price',
             dataIndex: 'price',
             key: 'price',
+            render: (text) => {
+                return (
+                    <span>{text.toFixed(2)} $</span>
+                )
+            }
         },
         {
             title: 'Product Quantity',
-            dataIndex: 'category',
-            key: 'category',
+            dataIndex: 'quantity',
+            key: 'quantity',
+            render: (text) => {
+                return (
+                    <div className="flex items-center">
+                        <Button type="primary" size="small" className="w-full items-center justify-center rounded-full" onClick={() => addClick(item)} icon={<PlusCircleOutlined />} />
+                        <span className="font-bold w-12 inline-block text-center">{item.quantity}</span>
+                        <Button type="primary" size="small" className="w-full flex items-center justify-center rounded-full" onClick={() => decreaseClick(item)} icon={<MinusCircleOutlined />} />
+                    </div>
+                )
+            }
         },
     ];
 
