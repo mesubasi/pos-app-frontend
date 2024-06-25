@@ -11,6 +11,22 @@ const CartPage = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const cart = useSelector((state) => state.cart);
 
+    const addClick = (item) => {
+        dispatch(increase(item));
+        message.success("Number of Products Increased!");
+    }
+
+    const decreaseClick = (item) => {
+        if (item.quantity === 1) {
+            if (window.confirm("Are you sure want to delete this item?")) {
+                dispatch(decrease(item));
+                message.error("Product Deleted From The Cart!");
+            }
+        } if (item.quantity > 1) {
+            dispatch(decrease(item));
+        }
+    }
+
     const columns = [
         {
             title: 'Product Image',
@@ -50,7 +66,7 @@ const CartPage = () => {
                 return (
                     <div className="flex items-center">
                         <Button type="primary" size="small" className="w-full items-center justify-center rounded-full" onClick={() => addClick(item)} icon={<PlusCircleOutlined />} />
-                        <span className="font-bold w-12 inline-block text-center">{item.quantity}</span>
+                        <span className="font-bold w-12 inline-block text-center">{text.quantity}</span>
                         <Button type="primary" size="small" className="w-full flex items-center justify-center rounded-full" onClick={() => decreaseClick(item)} icon={<MinusCircleOutlined />} />
                     </div>
                 )
