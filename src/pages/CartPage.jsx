@@ -1,4 +1,4 @@
-import { Button, Table } from 'antd';
+import { Button, Popconfirm, Table } from 'antd';
 import Header from '../components/header/Header';
 import { Card } from 'antd';
 import { useState } from 'react';
@@ -25,13 +25,6 @@ const CartPage = () => {
             }
         } if (record.quantity > 1) {
             dispatch(decrease(record));
-        }
-    }
-
-    const clearCart = () => {
-        if (window.confirm("Are You Sure?")) {
-            dispatch(reset());
-            message.success("Cart Succesfully Clear.");
         }
     }
 
@@ -92,7 +85,7 @@ const CartPage = () => {
             title: 'Actions',
             render: (_, record) => {
                 return (
-                    <Button type='link' danger onClick={() => clearCart(record)}>Delete</Button>
+                    <Popconfirm title="Are you sure you want to delete it?" onConfirm={() => dispatch(reset(record))} okText="Yes" cancelText="No"><Button type='link' danger>Delete</Button></Popconfirm>
                 )
             }
         },
