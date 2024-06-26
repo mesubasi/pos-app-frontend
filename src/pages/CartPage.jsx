@@ -4,12 +4,13 @@ import { Card } from 'antd';
 import { useState } from 'react';
 import CreateInvoice from '../components/cart/CreateInvoice';
 import { PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons"
-import { useSelector } from 'react-redux';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { increase, decrease, reset } from "../../redux/cartSlice";
 
 const CartPage = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const cart = useSelector((state) => state.cart);
+    const dispatch = useDispatch();
 
     const addClick = (item) => {
         dispatch(increase(item));
