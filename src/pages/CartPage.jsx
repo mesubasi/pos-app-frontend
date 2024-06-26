@@ -5,7 +5,7 @@ import { useState } from 'react';
 import CreateInvoice from '../components/cart/CreateInvoice';
 import { PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons"
 import { useDispatch, useSelector } from 'react-redux';
-import { increase, decrease } from "../redux/cartSlice";
+import { increase, decrease, reset } from "../redux/cartSlice";
 
 const CartPage = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -25,6 +25,13 @@ const CartPage = () => {
             }
         } if (record.quantity > 1) {
             dispatch(decrease(record));
+        }
+    }
+
+    const clearCart = () => {
+        if (window.confirm("Are You Sure?")) {
+            dispatch(reset());
+            message.success("Cart Succesfully Clear.");
         }
     }
 
@@ -85,7 +92,7 @@ const CartPage = () => {
             title: 'Actions',
             render: (_, record) => {
                 return (
-                    <Button type='link' danger>Delete</Button>
+                    <Button type='link' danger onClick={() => clearCart(record)}>Delete</Button>
                 )
             }
         },
