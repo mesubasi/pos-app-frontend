@@ -73,6 +73,16 @@ const CartPage = () => {
                 )
             }
         },
+        {
+            title: 'Total Price',
+            dataIndex: 'price',
+            key: 'price',
+            render: (text, record) => {
+                return (
+                    <span>{(record.quantity * record.price).toFixed(2)} $</span>
+                )
+            }
+        },
     ];
 
     return (
