@@ -5,26 +5,26 @@ import { useState } from 'react';
 import CreateInvoice from '../components/cart/CreateInvoice';
 import { PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons"
 import { useDispatch, useSelector } from 'react-redux';
-import { increase, decrease, reset } from "../../redux/cartSlice";
+import { increase, decrease } from "../redux/cartSlice";
 
 const CartPage = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const cart = useSelector((state) => state.cart);
     const dispatch = useDispatch();
 
-    const addClick = (item) => {
-        dispatch(increase(item));
+    const addClick = (record) => {
+        dispatch(increase(record));
         message.success("Number of Products Increased!");
     }
 
-    const decreaseClick = (item) => {
-        if (item.quantity === 1) {
+    const decreaseClick = (record) => {
+        if (record.quantity === 1) {
             if (window.confirm("Are you sure want to delete this item?")) {
-                dispatch(decrease(item));
+                dispatch(decrease(record));
                 message.error("Product Deleted From The Cart!");
             }
-        } if (item.quantity > 1) {
-            dispatch(decrease(item));
+        } if (record.quantity > 1) {
+            dispatch(decrease(record));
         }
     }
 
@@ -63,12 +63,12 @@ const CartPage = () => {
             title: 'Product Quantity',
             dataIndex: 'quantity',
             key: 'quantity',
-            render: (text) => {
+            render: (text, record) => {
                 return (
                     <div className="flex items-center">
-                        <Button type="primary" size="small" className="w-full items-center justify-center rounded-full" onClick={() => addClick(item)} icon={<PlusCircleOutlined />} />
-                        <span className="font-bold w-12 inline-block text-center">{text.quantity}</span>
-                        <Button type="primary" size="small" className="w-full flex items-center justify-center rounded-full" onClick={() => decreaseClick(item)} icon={<MinusCircleOutlined />} />
+                        <Button type="primary" size="small" className="w-full items-center justify-center rounded-full" onClick={() => addClick(record)} icon={<PlusCircleOutlined />} />
+                        <span className="font-bold w-12 inline-block text-center">{record.quantity}</span>
+                        <Button type="primary" size="small" className="w-full flex items-center justify-center rounded-full" onClick={() => decreaseClick(record)} icon={<MinusCircleOutlined />} />
                     </div>
                 )
             }
