@@ -75,11 +75,17 @@ const CartPage = () => {
         },
         {
             title: 'Total Price',
-            dataIndex: 'price',
-            key: 'price',
             render: (text, record) => {
                 return (
                     <span>{(record.quantity * record.price).toFixed(2)} $</span>
+                )
+            }
+        },
+        {
+            title: 'Actions',
+            render: (_, record) => {
+                return (
+                    <Button type='link' danger>Delete</Button>
                 )
             }
         },
