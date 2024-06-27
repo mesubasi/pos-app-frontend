@@ -12,7 +12,7 @@ import {
 import { Badge, Input } from "antd";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import "./index.css"
+import "./index.css";
 
 const Header = () => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -36,35 +36,35 @@ const Header = () => {
           />
         </div>
         <div className="menu-links">
-          <Link to="/" className="menu-link flex flex-col items-center hover:text-[#40a9ff] transition-all">
+          <Link to="/" className="menu-link">
             <HomeOutlined className="md:text-2xl text-xl" />
             <span className="md:text-xs text-[10px]">Home</span>
           </Link>
           <Badge count={totalQuantity} offset={[0, 0]} className="md:flex hidden">
-            <Link to="/cart" className="menu-link flex flex-col items-center hover:text-[#40a9ff] transition-all">
+            <Link to="/cart" className="menu-link">
               <ShoppingCartOutlined className="text-2xl" />
               <span className="md:text-xs text-[10px]">Cart</span>
             </Link>
           </Badge>
-          <Link to={"/invoices"} className="menu-link flex flex-col items-center hover:text-[#40a9ff] transition-all">
+          <Link to={"/invoices"} className="menu-link">
             <CopyOutlined className="md:text-2xl text-xl" />
             <span className="md:text-xs text-[10px]">Invoices</span>
           </Link>
-          <Link to={"/customers"} className="menu-link flex flex-col items-center hover:text-[#40a9ff] transition-all">
+          <Link to={"/customers"} className="menu-link">
             <UserOutlined className="md:text-2xl text-xl" />
             <span className="md:text-xs text-[10px]">Customers</span>
           </Link>
-          <Link to={"/statistics"} className="menu-link flex flex-col items-center hover:text-[#40a9ff] transition-all">
+          <Link to={"/statistics"} className="menu-link">
             <BarChartOutlined className="md:text-2xl text-xl" />
             <span className="md:text-xs text-[10px]">Statistics</span>
           </Link>
-          <Link to="" className="menu-link flex flex-col items-center hover:text-[#40a9ff] transition-all">
+          <Link to="" className="menu-link">
             <LogoutOutlined className="md:text-2xl text-xl" />
             <span className="md:text-xs text-[10px]">Exit</span>
           </Link>
         </div>
         <Badge count={totalQuantity} offset={[0, 0]} className="md:hidden flex">
-          <Link to="" className="menu-link flex flex-col items-center hover:text-[#40a9ff] transition-all">
+          <Link to="" className="menu-link">
             <ShoppingCartOutlined className="md:text-2xl text-xl" />
             <span className="md:text-xs text-[10px]">Basket</span>
           </Link>
