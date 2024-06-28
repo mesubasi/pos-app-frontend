@@ -62,9 +62,9 @@ const Header = () => {
           </Link>
         </div>
         <Badge count={cart.cartItems.length} offset={[0, 0]} className="md:hidden flex">
-          <Link to="" className="menu-link">
+          <Link to="/cart" className="menu-link">
             <ShoppingCartOutlined className="md:text-2xl text-xl" />
-            <span className="md:text-xs text-[10px]">Basket</span>
+            <span className="md:text-xs text-[10px]">Cart</span>
           </Link>
         </Badge>
       </header >
