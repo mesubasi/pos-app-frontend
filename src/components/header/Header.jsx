@@ -15,9 +15,7 @@ import { Link } from "react-router-dom";
 import "./index.css";
 
 const Header = () => {
-  const { cartItems } = useSelector((state) => state.cart);
-
-  const totalQuantity = cartItems.reduce((acc, tcc) => acc + tcc.quantity, 0);
+  const cart = useSelector((state) => state.cart);
 
   return (
     <div className="border-b mb-6">
@@ -40,7 +38,7 @@ const Header = () => {
             <HomeOutlined className="md:text-2xl text-xl" />
             <span className="md:text-xs text-[10px]">Home</span>
           </Link>
-          <Badge count={totalQuantity} offset={[0, 0]} className="md:flex hidden">
+          <Badge count={cart.cartItems.length} offset={[0, 0]} className="md:flex hidden">
             <Link to="/cart" className="menu-link">
               <ShoppingCartOutlined className="text-2xl" />
               <span className="md:text-xs text-[10px]">Cart</span>
@@ -63,7 +61,7 @@ const Header = () => {
             <span className="md:text-xs text-[10px]">Exit</span>
           </Link>
         </div>
-        <Badge count={totalQuantity} offset={[0, 0]} className="md:hidden flex">
+        <Badge count={cart.cartItems.length} offset={[0, 0]} className="md:hidden flex">
           <Link to="" className="menu-link">
             <ShoppingCartOutlined className="md:text-2xl text-xl" />
             <span className="md:text-xs text-[10px]">Basket</span>
