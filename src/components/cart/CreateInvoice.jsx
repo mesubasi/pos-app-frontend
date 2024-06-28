@@ -9,6 +9,7 @@ const CreateInvoice = ({ isModalOpen, setIsModalOpen }) => {
     const cart = useSelector((state) => state.cart);
     const dispatch = useDispatch();
     const { Option } = Select;
+
     const onFinish = async (values) => {
         try {
             const res = await fetch("http://localhost:5000/api/invoices/add-invoices", {
@@ -27,6 +28,7 @@ const CreateInvoice = ({ isModalOpen, setIsModalOpen }) => {
             if (res.status === 200) {
                 message.success("Invoice Successfully Generated");
                 setIsModalOpen(false);
+                dispatch(reset());
             } else {
                 message.error("Something went wrong!");
             }
