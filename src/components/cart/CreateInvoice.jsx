@@ -2,8 +2,10 @@
 
 import React from 'react';
 import { Modal, Form, Input, Select, Button } from 'antd';
+import { useSelector } from 'react-redux';
 
 const CreateInvoice = ({ isModalOpen, setIsModalOpen }) => {
+    const cart = useSelector((state) => state.cart);
     const { Option } = Select;
     const onFinish = (values) => {
         console.log("Received values of form:", values);
