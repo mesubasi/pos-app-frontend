@@ -2,10 +2,11 @@
 
 import React from 'react';
 import { Modal, Form, Input, Select, Button, message } from 'antd';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const CreateInvoice = ({ isModalOpen, setIsModalOpen }) => {
     const cart = useSelector((state) => state.cart);
+    const dispatch = useDispatch();
     const { Option } = Select;
     const onFinish = async (values) => {
         try {
