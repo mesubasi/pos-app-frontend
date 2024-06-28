@@ -48,8 +48,23 @@ const CreateInvoice = ({ isModalOpen, setIsModalOpen }) => {
                     <div className="flex justify-end">
                         <Button type="primary" className="mt-4" onClick={() => setIsModalOpen(true)} htmlType="submit">Create Order</Button>
                     </div>
+                    <div className="flex justify-between">
+                        <span>Subtotal</span>
+                        <span>{(cart.total) > 0 ? (cart.total).toFixed(2) : 0}$</span>
+                    </div>
+                    <div className="flex justify-between my-2">
+                        <span>VAT %{cart.tax}</span>
+                        <span className="text-red-600">{((cart.total * cart.tax) / 100) > 0 ? "+" + ((cart.total * cart.tax) / 100).toFixed(2) : 0}$</span>
+                    </div>
+                    <div className="flex justify-between">
+                        <b>Total</b>
+                        <b>{(cart.total + (cart.total * cart.tax) / 100) > 0 ? (cart.total + (cart.total * cart.tax) / 100).toFixed(2) : 0}$</b>
+                    </div>
+                    <div>
+                        <Button type="primary" size="large" className="w-full mt-4" onClick={() => setIsModalOpen(true)}>Create Order</Button>
+                    </div>
                 </Form>
-            </Modal>
+            </Modal >
         </>
     );
 };
