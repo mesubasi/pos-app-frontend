@@ -100,15 +100,15 @@ const CartPage = () => {
                     <Card className="w-72 border-2">
                         <div className="flex justify-between">
                             <span>Subtotal</span>
-                            <span>549.00$</span>
+                            <span>{(cart.total) > 0 ? (cart.total).toFixed(2) : 0}$</span>
                         </div>
                         <div className="flex justify-between my-2">
-                            <span>VAT Total %8</span>
-                            <span className="text-red-600">+43.92$</span>
+                            <span>VAT %{cart.tax}</span>
+                            <span className="text-red-600">{((cart.total * cart.tax) / 100) > 0 ? "+" + ((cart.total * cart.tax) / 100).toFixed(2) : 0}$</span>
                         </div>
                         <div className="flex justify-between">
                             <b>Total</b>
-                            <b>592.92$</b>
+                            <b>{(cart.total + (cart.total * cart.tax) / 100) > 0 ? (cart.total + (cart.total * cart.tax) / 100).toFixed(2) : 0}$</b>
                         </div>
                         <div>
                             <Button type="primary" size="large" className="w-full mt-4" onClick={() => setIsModalOpen(true)}>Create Order</Button>
