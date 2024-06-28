@@ -45,9 +45,6 @@ const CreateInvoice = ({ isModalOpen, setIsModalOpen }) => {
                             <Option value="Credit Card">Credit Card</Option>
                         </Select>
                     </Form.Item>
-                    <div className="flex justify-end">
-                        <Button type="primary" className="mt-4" onClick={() => setIsModalOpen(true)} htmlType="submit">Create Order</Button>
-                    </div>
                     <div className="flex justify-between">
                         <span>Subtotal</span>
                         <span>{(cart.total) > 0 ? (cart.total).toFixed(2) : 0}$</span>
