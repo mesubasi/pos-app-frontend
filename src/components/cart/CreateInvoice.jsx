@@ -8,7 +8,22 @@ const CreateInvoice = ({ isModalOpen, setIsModalOpen }) => {
     const cart = useSelector((state) => state.cart);
     const { Option } = Select;
     const onFinish = (values) => {
-        console.log("Received values of form:", values);
+        try {
+            fetch("http://localhost:5000/api/invoices/add-invoices", {
+                method: "POST",
+                body: JSON.stringify({
+                    ...values,
+                    subTotal: cart.total,
+                    tax: cart.tax,
+                    totalAmount: (cart.total + (cart.total * cart.tax) / 100).toFixed(2)
+                }),
+                headers: {
+                    'Content-Type': 'application/json; charset=UTF-8',
+                },
+            })
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     return (
