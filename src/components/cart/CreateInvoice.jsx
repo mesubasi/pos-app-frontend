@@ -23,9 +23,10 @@ const CreateInvoice = ({ isModalOpen, setIsModalOpen }) => {
                 },
             });
             if (res.status === 200) {
-                message.success("Fatura Başarıyla Oluşturuldu");
+                message.success("Invoice Successfully Generated");
+                setIsModalOpen(false);
             } else {
-                message.danger("Bir Şeyler Yanlış Gitti!");
+                message.error("Something went wrong!");
             }
         } catch (error) {
             console.log(error);
