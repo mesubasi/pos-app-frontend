@@ -4,10 +4,12 @@ import { Button, message } from "antd";
 import { ClearOutlined, PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons"
 import { useSelector, useDispatch } from "react-redux";
 import { increase, decrease, reset } from "../../redux/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 const CartTotals = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const addClick = (item) => {
     dispatch(increase(item));
@@ -71,7 +73,7 @@ const CartTotals = () => {
           </div>
         </div>
         <div className="py-4 px-2">
-          <Button type="primary" size="large" className="w-full" disabled={cart.cartItems.length === 0}>Create Order</Button>
+          <Button type="primary" size="large" className="w-full" disabled={cart.cartItems.length === 0} onClick={() => navigate("/cart")}>Create Order</Button>
           <Button type="primary" size="large" className="w-full mt-2 flex items-center justify-center" disabled={cart.cartItems.length === 0} danger onClick={clearCart} icon={<ClearOutlined />}>Clear</Button>
         </div>
       </div>
