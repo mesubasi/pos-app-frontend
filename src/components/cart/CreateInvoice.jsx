@@ -1,30 +1,37 @@
 //CreateInvoice.jsx
 
 import React from 'react';
-import { Modal, Form, Input, Select, Button } from 'antd';
+import { Modal, Form, Input, Select, Button, message } from 'antd';
 import { useSelector } from 'react-redux';
 
 const CreateInvoice = ({ isModalOpen, setIsModalOpen }) => {
     const cart = useSelector((state) => state.cart);
     const { Option } = Select;
-    const onFinish = (values) => {
+    const onFinish = async (values) => {
         try {
-            fetch("http://localhost:5000/api/invoices/add-invoices", {
+            const res = await fetch("http://localhost:5000/api/invoices/add-invoices", {
                 method: "POST",
                 body: JSON.stringify({
                     ...values,
                     subTotal: cart.total,
-                    tax: cart.tax,
-                    totalAmount: (cart.total + (cart.total * cart.tax) / 100).toFixed(2)
+                    tax: ((cart.total * cart.tax) / 100),
+                    totalAmount: (cart.total + (cart.total * cart.tax) / 100).toFixed(2),
+                    cartItems: cart.cartItems,
                 }),
                 headers: {
                     'Content-Type': 'application/json; charset=UTF-8',
                 },
-            })
+            });
+            if (res.status === 200) {
+                message.success("Fatura Başarıyla Oluşturuldu");
+            } else {
+                message.danger("Bir Şeyler Yanlış Gitti!");
+            }
         } catch (error) {
             console.log(error);
         }
     };
+
 
     return (
         <>
