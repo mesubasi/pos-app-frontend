@@ -4,10 +4,12 @@ import React from 'react';
 import { Modal, Form, Input, Select, Button, message } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { increase, decrease, reset } from "../../redux/cartSlice";
+import { useNavigate } from 'react-router-dom';
 
 const CreateInvoice = ({ isModalOpen, setIsModalOpen }) => {
     const cart = useSelector((state) => state.cart);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const { Option } = Select;
 
     const onFinish = async (values) => {
@@ -29,6 +31,7 @@ const CreateInvoice = ({ isModalOpen, setIsModalOpen }) => {
                 message.success("Invoice Successfully Generated");
                 setIsModalOpen(false);
                 dispatch(reset());
+                navigate("/invoices")
             } else {
                 message.error("Something went wrong!");
             }
