@@ -111,7 +111,7 @@ const CartPage = () => {
                             <b>{(cart.total + (cart.total * cart.tax) / 100) > 0 ? (cart.total + (cart.total * cart.tax) / 100).toFixed(2) : 0}$</b>
                         </div>
                         <div>
-                            <Button type="primary" size="large" className="w-full mt-4" onClick={() => setIsModalOpen(true)}>Create Order</Button>
+                            <Button type="primary" size="large" className="w-full mt-4" onClick={() => setIsModalOpen(true)} disabled={cart.cartItems.length === 0}>Create Order</Button>
                         </div>
                     </Card>
                 </div>
