@@ -8,6 +8,23 @@ import PrintInvoices from '../components/invoices/PrintInvoices';
 
 const InvoicesPage = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [invoiceItems, setInvoiceItems] = useState();
+
+    useEffect(() => {
+        const getInvoices = async () => {
+            try {
+                await fetch("http://localhost:5000/api/invoices/get-all-invoices")
+                const data = await res.json();
+                setInvoiceItems(data);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        getInvoices();
+    }, [])
+
+
     const dataSource = [
         {
             key: '1',
