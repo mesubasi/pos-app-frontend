@@ -25,21 +25,6 @@ const InvoicesPage = () => {
     }, [])
 
 
-    const dataSource = [
-        {
-            key: '1',
-            name: 'Mike',
-            age: 32,
-            address: '10 Downing Street',
-        },
-        {
-            key: '2',
-            name: 'John',
-            age: 42,
-            address: '10 Downing Street',
-        },
-    ];
-
     const columns = [
         {
             title: 'Name',
@@ -63,7 +48,7 @@ const InvoicesPage = () => {
             <Header />
             <div className="px-6">
                 <h2 className='text-4xl font-bold text-center mb-4'>Invoices</h2>
-                <Table dataSource={dataSource} columns={columns} bordered pagination={false} />
+                <Table dataSource={getInvoices} columns={columns} bordered pagination={false} />
                 <div className="cart-total flex justify-end mt-4">
                     <Card className="w-72 border-2">
                         <div>
