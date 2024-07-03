@@ -27,9 +27,9 @@ const InvoicesPage = () => {
 
     const columns = [
         {
-            title: 'Name',
-            dataIndex: 'name',
-            key: 'name',
+            title: 'Customer Name',
+            dataIndex: 'customerName',
+            key: 'customerName',
         },
         {
             title: 'Age',
