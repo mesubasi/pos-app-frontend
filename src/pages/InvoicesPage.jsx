@@ -40,6 +40,9 @@ const InvoicesPage = () => {
             title: 'Create Date',
             dataIndex: 'createdAt',
             key: 'createdAt',
+            render: (text) => {
+                return <span>{text.substring(0, 10)}</span>
+            }
         },
     ];
 
