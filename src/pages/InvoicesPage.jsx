@@ -32,14 +32,14 @@ const InvoicesPage = () => {
             key: 'customerName',
         },
         {
-            title: 'Age',
-            dataIndex: 'age',
-            key: 'age',
+            title: 'Phone Number',
+            dataIndex: 'phoneNumber',
+            key: 'phoneNumber',
         },
         {
-            title: 'Address',
-            dataIndex: 'address',
-            key: 'address',
+            title: 'Create Date',
+            dataIndex: 'createdAt',
+            key: 'createdAt',
         },
     ];
 
