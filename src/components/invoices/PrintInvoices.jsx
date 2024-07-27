@@ -2,7 +2,7 @@
 
 import { Button, Modal } from 'antd';
 
-const PrintInvoices = ({ isModalOpen, setIsModalOpen }) => {
+const PrintInvoices = ({ isModalOpen, setIsModalOpen, customer }) => {
 
     return (
         <>
