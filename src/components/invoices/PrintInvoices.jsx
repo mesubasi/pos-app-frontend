@@ -32,11 +32,11 @@ const PrintInvoices = ({ isModalOpen, setIsModalOpen, customer }) => {
                                     <div className='text-md text-slate-500'>
                                         <div className='pb-2'>
                                             <p className='font-bold text-slate-700'>Invoice Number:</p>
-                                            <p>00041</p>
+                                            <p>{customer?._id}</p>
                                         </div>
                                         <div>
                                             <p className='font-bold text-slate-700'>Date of Issue:</p>
-                                            <p>2024-04-01</p>
+                                            <p>{customer?.createdAt.substring(0, 10)}</p>
                                         </div>
                                     </div>
                                     <div className='text-md text-slate-500 sm:block hidden'>
