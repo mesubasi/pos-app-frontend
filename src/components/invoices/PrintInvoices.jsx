@@ -4,6 +4,19 @@ import { Button, Modal } from 'antd';
 
 const PrintInvoices = ({ isModalOpen, setIsModalOpen, customer }) => {
 
+    const addOneYear = (dateString) => {
+        const date = new Date(dateString);
+        date.setFullYear(date.getFullYear() + 1);
+
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0'); // Ayı 2 haneli yapmak için
+        const day = String(date.getDate()).padStart(2, '0'); // Günü 2 haneli yapmak için
+
+        return `${year}-${month}-${day}`;
+    };
+
+    const formattedDate = customer?.createdAt ? addOneYear(customer.createdAt) : '';
+
     return (
         <>
             <Modal title="Invoices Print" open={isModalOpen} footer={false} width={800} onCancel={() => setIsModalOpen(false)}>
@@ -46,7 +59,7 @@ const PrintInvoices = ({ isModalOpen, setIsModalOpen, customer }) => {
                                         </div>
                                         <div>
                                             <p className='font-bold text-slate-700'>Due:</p>
-                                            <p>00.00.00</p>
+                                            <p>{formattedDate}</p>
                                         </div>
                                     </div>
                                 </div>
