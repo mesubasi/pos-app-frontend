@@ -43,6 +43,12 @@ const InvoicesPage = () => {
             render: (text) => {
                 return <span>{text.substring(0, 10)}</span>
             }
+
+        },
+        {
+            title: 'Payment Method',
+            dataIndex: 'paymentMethod',
+            key: 'paymentMethod',
         },
     ];
 
