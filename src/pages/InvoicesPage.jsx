@@ -9,6 +9,7 @@ import PrintInvoices from '../components/invoices/PrintInvoices';
 const InvoicesPage = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [invoiceItems, setInvoiceItems] = useState();
+    const [customer, setCustomer] = useState();
 
     useEffect(() => {
         const getInvoices = async () => {
