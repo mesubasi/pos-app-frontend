@@ -63,7 +63,7 @@ const InvoicesPage = () => {
             dataIndex: 'action',
             key: 'totalAmount',
             render: (text) => {
-                return <Button type='link' className='pl-0'>Print</Button>
+                return <Button type='link' className='pl-0' onClick={() => setIsModalOpen(true)}> Print</ Button>
             }
         },
     ];
@@ -74,13 +74,6 @@ const InvoicesPage = () => {
             <div className="px-6">
                 <h2 className='text-4xl font-bold text-center mb-4'>Invoices</h2>
                 <Table dataSource={invoiceItems} columns={columns} bordered pagination={false} />
-                <div className="cart-total flex justify-end mt-4">
-                    <Card className="w-72 border-2">
-                        <div>
-                            <Button type="primary" size="large" className="w-full mt-4" onClick={() => setIsModalOpen(true)}>Print</Button>
-                        </div>
-                    </Card>
-                </div>
             </div>
             <PrintInvoices isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
         </>
