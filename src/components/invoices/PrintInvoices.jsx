@@ -64,106 +64,28 @@ const PrintInvoices = ({ isModalOpen, setIsModalOpen, customer }) => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr className='border-b border-t border-slate-200'>
-                                            <td className='py-4 pr-3 sm:table-cell hidden'>
-                                                <img src="https://www.diyetkolik.com/site_media/media/customvideo_images/Yesil_elma_yag_yakar_m__Krmz_elma_m_yesil_elma_m__1_1.jpg" alt="" className='w-12 h-12 object-cover' />
-                                            </td>
-                                            <td className='py-4'>
-                                                <div className='flex flex-col'>
-                                                    <span className='font-medium'>Apple</span>
-                                                    <span className='font-medium sm:hidden inline-block text-xs'>1 Unit At 5$</span>
-                                                </div>
-                                            </td>
-                                            <td className='py-4 sm:text-center sm:table-cell hidden'>
-                                                <span>5$</span>
-                                            </td>
-                                            <td className='py-4 sm:text-center text-right sm:table-cell hidden'>
-                                                <span>1</span>
-                                            </td>
-                                            <td className='py-4 text-end' colSpan={4}>
-                                                <span>5.00$</span>
-                                            </td>
-                                        </tr>
-                                        <tr className='border-b border-t border-slate-200'>
-                                            <td className='py-4 pr-3 sm:table-cell hidden'>
-                                                <img src="https://www.diyetkolik.com/site_media/media/customvideo_images/Yesil_elma_yag_yakar_m__Krmz_elma_m_yesil_elma_m__1_1.jpg" alt="" className='w-12 h-12 object-cover' />
-                                            </td>
-                                            <td className='py-4'>
-                                                <div className='flex flex-col'>
-                                                    <span className='font-medium'>Apple</span>
-                                                    <span className='font-medium sm:hidden inline-block text-xs'>1 Unit At 5$</span>
-                                                </div>
-                                            </td>
-                                            <td className='py-4 sm:text-center sm:table-cell hidden'>
-                                                <span>5$</span>
-                                            </td>
-                                            <td className='py-4 sm:text-center text-right sm:table-cell hidden'>
-                                                <span>1</span>
-                                            </td>
-                                            <td className='py-4 text-end' colSpan={4}>
-                                                <span>5.00$</span>
-                                            </td>
-                                        </tr>
-                                        <tr className='border-b border-t border-slate-200'>
-                                            <td className='py-4 pr-3 sm:table-cell hidden'>
-                                                <img src="https://www.diyetkolik.com/site_media/media/customvideo_images/Yesil_elma_yag_yakar_m__Krmz_elma_m_yesil_elma_m__1_1.jpg" alt="" className='w-12 h-12 object-cover' />
-                                            </td>
-                                            <td className='py-4'>
-                                                <div className='flex flex-col'>
-                                                    <span className='font-medium'>Apple</span>
-                                                    <span className='font-medium sm:hidden inline-block text-xs'>1 Unit At 5$</span>
-                                                </div>
-                                            </td>
-                                            <td className='py-4 sm:text-center sm:table-cell hidden'>
-                                                <span>5$</span>
-                                            </td>
-                                            <td className='py-4 sm:text-center text-right sm:table-cell hidden'>
-                                                <span>1</span>
-                                            </td>
-                                            <td className='py-4 text-end' colSpan={4}>
-                                                <span>5.00$</span>
-                                            </td>
-                                        </tr>
-                                        <tr className='border-b border-t border-slate-200'>
-                                            <td className='py-4 pr-3 sm:table-cell hidden'>
-                                                <img src="https://www.diyetkolik.com/site_media/media/customvideo_images/Yesil_elma_yag_yakar_m__Krmz_elma_m_yesil_elma_m__1_1.jpg" alt="" className='w-12 h-12 object-cover' />
-                                            </td>
-                                            <td className='py-4'>
-                                                <div className='flex flex-col'>
-                                                    <span className='font-medium'>Apple</span>
-                                                    <span className='font-medium sm:hidden inline-block text-xs'>1 Unit At 5$</span>
-                                                </div>
-                                            </td>
-                                            <td className='py-4 sm:text-center sm:table-cell hidden'>
-                                                <span>5$</span>
-                                            </td>
-                                            <td className='py-4 sm:text-center text-right sm:table-cell hidden'>
-                                                <span>1</span>
-                                            </td>
-                                            <td className='py-4 text-end' colSpan={4}>
-                                                <span>5.00$</span>
-                                            </td>
-                                        </tr>
-                                        <tr className='border-b border-t border-slate-200'>
-                                            <td className='py-4 pr-3 sm:table-cell hidden'>
-                                                <img src="https://www.diyetkolik.com/site_media/media/customvideo_images/Yesil_elma_yag_yakar_m__Krmz_elma_m_yesil_elma_m__1_1.jpg" alt="" className='w-12 h-12 object-cover' />
-                                            </td>
-                                            <td className='py-4'>
-                                                <div className='flex flex-col'>
-                                                    <span className='font-medium'>Apple</span>
-                                                    <span className='font-medium sm:hidden inline-block text-xs'>1 Unit At 5$</span>
-                                                </div>
-                                            </td>
-                                            <td className='py-4 sm:text-center sm:table-cell hidden'>
-                                                <span>5$</span>
-                                            </td>
-                                            <td className='py-4 sm:text-center text-right sm:table-cell hidden'>
-                                                <span>1</span>
-                                            </td>
-                                            <td className='py-4 text-end' colSpan={4}>
-                                                <span>5.00$</span>
-                                            </td>
-                                        </tr>
+                                        {customer?.cartItems.map((item) => (
+                                            <tr className='border-b border-t border-slate-200'>
+                                                <td className='py-4 pr-3 sm:table-cell hidden'>
+                                                    <img src={item.img} alt="" className='w-12 h-12 object-cover' />
+                                                </td>
+                                                <td className='py-4'>
+                                                    <div className='flex flex-col'>
+                                                        <span className='font-medium'></span>
+                                                        <span className='font-medium sm:hidden inline-block text-xs'>1 Unit At 5$</span>
+                                                    </div>
+                                                </td>
+                                                <td className='py-4 sm:text-center sm:table-cell hidden'>
+                                                    <span>5$</span>
+                                                </td>
+                                                <td className='py-4 sm:text-center text-right sm:table-cell hidden'>
+                                                    <span>1</span>
+                                                </td>
+                                                <td className='py-4 text-end' colSpan={4}>
+                                                    <span>5.00$</span>
+                                                </td>
+                                            </tr>
+                                        ))}
                                     </tbody>
                                     <tfoot>
                                         <tr>
