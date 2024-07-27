@@ -1,6 +1,6 @@
 //InvoicesPage.jsx
 
-import { Button, Table, Card } from 'antd';
+import { Button, Table } from 'antd';
 import Header from '../components/header/Header';
 import { useEffect, useState } from 'react';
 import PrintInvoices from '../components/invoices/PrintInvoices';
