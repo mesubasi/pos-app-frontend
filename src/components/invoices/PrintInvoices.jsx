@@ -9,8 +9,8 @@ const PrintInvoices = ({ isModalOpen, setIsModalOpen, customer }) => {
         date.setFullYear(date.getFullYear() + 1);
 
         const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, '0'); // Ayı 2 haneli yapmak için
-        const day = String(date.getDate()).padStart(2, '0'); // Günü 2 haneli yapmak için
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
 
         return `${year}-${month}-${day}`;
     };
