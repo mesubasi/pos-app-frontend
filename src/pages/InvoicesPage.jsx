@@ -63,8 +63,11 @@ const InvoicesPage = () => {
             title: 'Action',
             dataIndex: 'action',
             key: 'totalAmount',
-            render: (text) => {
-                return <Button type='link' className='pl-0' onClick={() => setIsModalOpen(true)}> Print</ Button>
+            render: (_, record) => {
+                return <Button type='link' className='pl-0' onClick={() => {
+                    setIsModalOpen(true)
+                    setCustomer(record)
+                }}> Print</ Button>
             }
         },
     ];
