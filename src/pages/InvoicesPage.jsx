@@ -58,6 +58,14 @@ const InvoicesPage = () => {
                 return <span>{text} $</span>
             }
         },
+        {
+            title: 'Action',
+            dataIndex: 'action',
+            key: 'totalAmount',
+            render: (text) => {
+                return <Button type='link' className='pl-0'>Print</Button>
+            }
+        },
     ];
 
     return (
