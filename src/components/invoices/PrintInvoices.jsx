@@ -59,7 +59,7 @@ const PrintInvoices = ({ isModalOpen, setIsModalOpen, customer }) => {
                                             <th scope='col' className='pb-3.5 text-left text-sm font-normal text-slate-700 md:pl-0 sm:table-cell hidden'>Title</th>
                                             <th scope='col' colSpan={4} className='pb-3.5 text-left text-sm font-normal text-slate-700 md:pl-0 sm:hidden'>Title</th>
                                             <th scope='col' className='pb-3.5 text-center text-sm font-normal text-slate-700 sm:pl-6 md:pl-0 sm:table-cell hidden'>Price</th>
-                                            <th scope='col' className='pb-3.5 text-center text-sm font-normal text-slate-700 sm:pl-6 md:pl-0 sm:table-cell hidden'>Piece</th>
+                                            <th scope='col' className='pb-3.5 text-center text-sm font-normal text-slate-700 sm:pl-6 md:pl-0 sm:table-cell hidden'>Quantity</th>
                                             <th scope='col' className='pb-3.5 text-end text-sm font-normal text-slate-700 sm:pl-6 md:pl-0 sm:table-cell'>Total</th>
                                         </tr>
                                     </thead>
