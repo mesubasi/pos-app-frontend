@@ -71,18 +71,18 @@ const PrintInvoices = ({ isModalOpen, setIsModalOpen, customer }) => {
                                                 </td>
                                                 <td className='py-4'>
                                                     <div className='flex flex-col'>
-                                                        <span className='font-medium'></span>
+                                                        <span className='font-medium'>{item.title}</span>
                                                         <span className='font-medium sm:hidden inline-block text-xs'>1 Unit At 5$</span>
                                                     </div>
                                                 </td>
                                                 <td className='py-4 sm:text-center sm:table-cell hidden'>
-                                                    <span>5$</span>
+                                                    <span>{item.price} $</span>
                                                 </td>
                                                 <td className='py-4 sm:text-center text-right sm:table-cell hidden'>
-                                                    <span>1</span>
+                                                    <span>{item.quantity}</span>
                                                 </td>
                                                 <td className='py-4 text-end' colSpan={4}>
-                                                    <span>5.00$</span>
+                                                    <span>{item.price * item.quantity} $</span>
                                                 </td>
                                             </tr>
                                         ))}
