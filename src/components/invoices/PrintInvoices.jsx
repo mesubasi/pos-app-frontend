@@ -101,7 +101,7 @@ const PrintInvoices = ({ isModalOpen, setIsModalOpen, customer }) => {
                                             </th>
                                             <th className='text-right pt-4' scope="row">
                                                 <span className='font-normal text-slate-700'>
-                                                    63$
+                                                    {customer?.subTotal} $
                                                 </span>
                                             </th>
                                         </tr>
@@ -118,7 +118,7 @@ const PrintInvoices = ({ isModalOpen, setIsModalOpen, customer }) => {
                                             </th>
                                             <th className='text-right pt-4' scope="row">
                                                 <span className='font-normal text-red-700'>
-                                                    4.88$
+                                                    {customer?.tax} $
                                                 </span>
                                             </th>
                                         </tr>
@@ -135,7 +135,7 @@ const PrintInvoices = ({ isModalOpen, setIsModalOpen, customer }) => {
                                             </th>
                                             <th className='text-right pt-4' scope="row">
                                                 <span className='font-normal text-slate-700'>
-                                                    67.88$
+                                                    {customer?.totalAmount} $
                                                 </span>
                                             </th>
                                         </tr>
