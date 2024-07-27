@@ -54,6 +54,9 @@ const InvoicesPage = () => {
             title: 'Total Price',
             dataIndex: 'totalAmount',
             key: 'totalAmount',
+            render: (text) => {
+                return <span>{text} $</span>
+            }
         },
     ];
 
