@@ -79,7 +79,7 @@ const InvoicesPage = () => {
                 <h2 className='text-4xl font-bold text-center mb-4'>Invoices</h2>
                 <Table dataSource={invoiceItems} columns={columns} bordered pagination={false} />
             </div>
-            <PrintInvoices isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+            <PrintInvoices isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} customer={customer} />
         </>
     );
 };
