@@ -50,6 +50,11 @@ const InvoicesPage = () => {
             dataIndex: 'paymentMethod',
             key: 'paymentMethod',
         },
+        {
+            title: 'Total Price',
+            dataIndex: 'totalAmount',
+            key: 'totalAmount',
+        },
     ];
 
     return (
