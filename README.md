@@ -33,9 +33,6 @@ This repository contains the front end of the MERN Stack POS Application. The fr
    Create a .env file in the root of the project and add the following variables:
 
    ```sh
-   VITE_API_URL=http://localhost:5000/api
-   VITE_AUTH_SECRET=your-auth-secret
-   VITE_OTHER_CONFIG=your-other-config
    ```
 
 4. **Start the development server:**
