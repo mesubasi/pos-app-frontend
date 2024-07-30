@@ -85,17 +85,17 @@ const PrintInvoices = ({ isModalOpen, setIsModalOpen, customer }) => {
                                                 <td className='py-4'>
                                                     <div className='flex flex-col'>
                                                         <span className='font-medium'>{item.title}</span>
-                                                        <span className='font-medium sm:hidden inline-block text-xs'>1 Unit At {item.price}$</span>
+                                                        <span className='font-medium sm:hidden inline-block text-xs'>1 Unit At {(item.price).toFixed(2)}$</span>
                                                     </div>
                                                 </td>
                                                 <td className='py-4 sm:text-center sm:table-cell hidden'>
-                                                    <span>{item.price} $</span>
+                                                    <span>{(item.price).toFixed(2)} $</span>
                                                 </td>
                                                 <td className='py-4 sm:text-center text-right sm:table-cell hidden'>
                                                     <span>{item.quantity}</span>
                                                 </td>
                                                 <td className='py-4 text-end' colSpan={4}>
-                                                    <span>{item.price * item.quantity} $</span>
+                                                    <span>{(item.price * item.quantity).toFixed(2)} $</span>
                                                 </td>
                                             </tr>
                                         ))}
@@ -114,7 +114,7 @@ const PrintInvoices = ({ isModalOpen, setIsModalOpen, customer }) => {
                                             </th>
                                             <th className='text-right pt-4' scope="row">
                                                 <span className='font-normal text-slate-700'>
-                                                    {customer?.subTotal} $
+                                                    {(customer?.subTotal).toFixed(2)} $
                                                 </span>
                                             </th>
                                         </tr>
@@ -131,7 +131,7 @@ const PrintInvoices = ({ isModalOpen, setIsModalOpen, customer }) => {
                                             </th>
                                             <th className='text-right pt-4' scope="row">
                                                 <span className='font-bold text-red-700'>
-                                                    {customer?.tax} $
+                                                    {(customer?.tax).toFixed(2)} $
                                                 </span>
                                             </th>
                                         </tr>
@@ -148,7 +148,7 @@ const PrintInvoices = ({ isModalOpen, setIsModalOpen, customer }) => {
                                             </th>
                                             <th className='text-right pt-4' scope="row">
                                                 <span className='font-bold text-slate-700'>
-                                                    {customer?.totalAmount} $
+                                                    {(customer?.totalAmount).toFixed(2)} $
                                                 </span>
                                             </th>
                                         </tr>
