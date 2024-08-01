@@ -78,7 +78,7 @@ const PrintInvoices = ({ isModalOpen, setIsModalOpen, customer }) => {
                                     </thead>
                                     <tbody>
                                         {customer?.cartItems.map((item) => (
-                                            <tr className='border-b border-t border-slate-200'>
+                                            <tr key={item._id} className='border-b border-t border-slate-200'>
                                                 <td className='py-4 pr-3 sm:table-cell hidden'>
                                                     <img src={item.img} alt="" className='w-12 h-12 object-cover' />
                                                 </td>
@@ -114,7 +114,7 @@ const PrintInvoices = ({ isModalOpen, setIsModalOpen, customer }) => {
                                             </th>
                                             <th className='text-right pt-4' scope="row">
                                                 <span className='font-normal text-slate-700'>
-                                                    {(customer?.subTotal).toFixed(2)} $
+                                                    {customer?.subTotal.toFixed(2)} $
                                                 </span>
                                             </th>
                                         </tr>
@@ -131,7 +131,7 @@ const PrintInvoices = ({ isModalOpen, setIsModalOpen, customer }) => {
                                             </th>
                                             <th className='text-right pt-4' scope="row">
                                                 <span className='font-bold text-red-700'>
-                                                    {(customer?.tax).toFixed(2)} $
+                                                    {customer?.tax.toFixed(2)} $
                                                 </span>
                                             </th>
                                         </tr>
@@ -148,7 +148,7 @@ const PrintInvoices = ({ isModalOpen, setIsModalOpen, customer }) => {
                                             </th>
                                             <th className='text-right pt-4' scope="row">
                                                 <span className='font-bold text-slate-700'>
-                                                    {(customer?.totalAmount).toFixed(2)} $
+                                                    {(customer?.totalAmount.toFixed(2))} $
                                                 </span>
                                             </th>
                                         </tr>
