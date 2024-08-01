@@ -131,7 +131,7 @@ const PrintInvoices = ({ isModalOpen, setIsModalOpen, customer }) => {
                                             </th>
                                             <th className='text-right pt-4' scope="row">
                                                 <span className='font-bold text-red-700'>
-                                                    {customer?.tax.toFixed(2)} $
+                                                    +{customer?.tax.toFixed(2)} $
                                                 </span>
                                             </th>
                                         </tr>
