@@ -26,7 +26,7 @@ const PrintInvoices = ({ isModalOpen, setIsModalOpen, customer }) => {
     return (
         <>
             <Modal title="Invoices Print" open={isModalOpen} footer={false} width={800} onCancel={() => setIsModalOpen(false)}>
-                <section className='py-20 bg-black'>
+                <section className='py-20 bg-black' ref={componentRef}>
                     <div className='max-w-5xl mx-auto bg-white'>
                         <article className='overflow-hidden'>
                             <div className="logo my-6">
@@ -180,7 +180,7 @@ const PrintInvoices = ({ isModalOpen, setIsModalOpen, customer }) => {
                     </div>
                 </section>
                 <div className='flex justify-end mt-4'>
-                    <Button type="primary" size="large">Print</Button>
+                    <Button type="primary" size="large" onClick={handlePrint}>Print</Button>
                 </div>
             </Modal>
         </>
