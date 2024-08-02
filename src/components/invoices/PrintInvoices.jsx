@@ -27,7 +27,7 @@ const PrintInvoices = ({ isModalOpen, setIsModalOpen, customer }) => {
     return (
         <>
             <Modal title="Invoices Print" open={isModalOpen} footer={false} width={800} onCancel={() => setIsModalOpen(false)}>
-                <section className='py-20 bg-black' ref={componentRef}>
+                <section className='py-20 bg-black' ref={componentRef} key={customer?._id}>
                     <div className='max-w-5xl mx-auto bg-white'>
                         <article className='overflow-hidden'>
                             <div className="logo my-6">
@@ -37,7 +37,7 @@ const PrintInvoices = ({ isModalOpen, setIsModalOpen, customer }) => {
                                 <div className='grid sm:grid-cols-4 grid-cols-3 gap-12'>
                                     <div className='text-md text-slate-500'>
                                         <p className='font-bold text-slate-700'>Invoice Detail:</p>
-                                        <p>{customer?.customerName}</p>
+                                        <p className='text-green-600'>{customer?.customerName}</p>
                                         <p> Fake Street  123</p>
                                         <p> San Javier</p>
                                         <p> CA 1234</p>
