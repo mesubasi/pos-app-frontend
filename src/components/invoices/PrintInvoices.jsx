@@ -4,6 +4,11 @@ import { Button, Modal } from 'antd';
 import { useReactToPrint } from "react-to-print"
 
 const PrintInvoices = ({ isModalOpen, setIsModalOpen, customer }) => {
+    const componentRef = useRef();
+
+    const handlePrint = useReactToPrint({
+        content: () => componentRef.current,
+    })
 
     const addOneYear = (dateString) => {
         const date = new Date(dateString);
