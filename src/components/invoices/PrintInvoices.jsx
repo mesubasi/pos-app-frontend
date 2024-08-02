@@ -37,7 +37,7 @@ const PrintInvoices = ({ isModalOpen, setIsModalOpen, customer }) => {
                                 <div className='grid sm:grid-cols-4 grid-cols-3 gap-12'>
                                     <div className='text-md text-slate-500'>
                                         <p className='font-bold text-slate-700'>Invoice Detail:</p>
-                                        <p>Unwrapped</p>
+                                        <p>{customer?.customerName}</p>
                                         <p> Fake Street  123</p>
                                         <p> San Javier</p>
                                         <p> CA 1234</p>
