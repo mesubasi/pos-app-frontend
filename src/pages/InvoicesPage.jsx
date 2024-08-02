@@ -77,7 +77,7 @@ const InvoicesPage = () => {
             <Header />
             <div className="px-6">
                 <h2 className='text-4xl font-bold text-center mb-4'>Invoices</h2>
-                <Table dataSource={invoiceItems} columns={columns} bordered pagination={false} virtual scroll={{ x: 1000, y: 500 }} />
+                <Table dataSource={invoiceItems} columns={columns} bordered pagination={false} virtual scroll={{ x: 1000, y: 300 }} />
             </div>
             <PrintInvoices isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} customer={customer} />
         </>
