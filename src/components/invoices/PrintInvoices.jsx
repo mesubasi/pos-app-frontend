@@ -1,6 +1,7 @@
 //CreateInvoice.jsx
 
 import { Button, Modal } from 'antd';
+import { useRef } from 'react';
 import { useReactToPrint } from "react-to-print"
 
 const PrintInvoices = ({ isModalOpen, setIsModalOpen, customer }) => {
