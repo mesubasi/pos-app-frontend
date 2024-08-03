@@ -28,7 +28,7 @@ const PrintInvoices = ({ isModalOpen, setIsModalOpen, customer }) => {
         <>
             <Modal title="Invoices Print" open={isModalOpen} footer={false} width={800} onCancel={() => setIsModalOpen(false)}>
                 <section className='py-20 bg-black' ref={componentRef} key={customer?._id}>
-                    <div className='max-w-5xl mx-auto bg-white'>
+                    <div className='max-w-5xl px-4 mx-auto bg-white'>
                         <article className='overflow-hidden'>
                             <div className="logo my-6">
                                 <h2 className='text-4xl font-bold text-slate-700'>LOGO</h2>
