@@ -2,8 +2,10 @@
 
 import { Table, Card } from 'antd';
 import Header from '../components/header/Header';
+import { useState } from 'react';
 
 const CustomerPage = () => {
+    const [billItems, setBillItems] = useState([])
     const dataSource = [
         {
             key: '1',
