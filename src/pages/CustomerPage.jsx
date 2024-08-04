@@ -36,6 +36,9 @@ const CustomerPage = () => {
             title: 'Transaction Date',
             dataIndex: 'createdAt',
             key: 'createdAt',
+            render: (text) => {
+                <span>{text.substring(0, 10)}</span>
+            }
         },
     ];
 
