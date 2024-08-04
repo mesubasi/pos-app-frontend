@@ -2,10 +2,25 @@
 
 import { Table, Card } from 'antd';
 import Header from '../components/header/Header';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const CustomerPage = () => {
-    const [billItems, setBillItems] = useState([])
+    const [billItems, setBillItems] = useState([]);
+
+    useEffect(() => {
+        const getInvoices = async () => {
+            try {
+                const res = await fetch("http://localhost:5000/api/invoices/get-all-invoices")
+                const data = await res.json();
+                setInvoiceItems(data);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        getInvoices();
+    }, []);
+
     const dataSource = [
         {
             key: '1',
