@@ -23,19 +23,19 @@ const CustomerPage = () => {
 
     const columns = [
         {
-            title: 'Name',
-            dataIndex: 'name',
-            key: 'name',
+            title: 'Customer Name',
+            dataIndex: 'customerName',
+            key: 'customerName',
         },
         {
-            title: 'Age',
-            dataIndex: 'age',
-            key: 'age',
+            title: 'Phone Number',
+            dataIndex: 'phoneNumber',
+            key: 'phoneNumber',
         },
         {
-            title: 'Address',
-            dataIndex: 'address',
-            key: 'address',
+            title: 'Transaction Date',
+            dataIndex: 'createdAt',
+            key: 'createdAt',
         },
     ];
 
