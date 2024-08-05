@@ -1,6 +1,6 @@
 //Register.jsx
 
-import { Button, Form, Input, Carousel } from 'antd'
+import { Button, Form, Input, Carousel, message } from 'antd'
 import { Link } from 'react-router-dom'
 import AuthCarousel from '../../components/auth/AuthCarousel';
 
@@ -11,8 +11,10 @@ const Register = () => {
                 method: "POST",
                 body: JSON.stringify(values),
                 headers: { "Content-type": "application/json; charset=UTF-8" },
-            })
+            });
+            message.success("Successfully Registered!");
         } catch (error) {
+            message.error("Ooppsss. Went Wrong!");
             console.log(error);
         }
     }
