@@ -5,20 +5,24 @@ import { Link } from 'react-router-dom'
 import AuthCarousel from '../../components/auth/AuthCarousel';
 
 const Register = () => {
-    const contentStyle = {
-        margin: 0,
-        height: '160px',
-        color: '#fff',
-        lineHeight: '160px',
-        textAlign: 'center',
-        background: '#364d79',
-    };
+    const onFinish = (values) => {
+        try {
+            fetch("http://localhost:5000/api/auth/register", {
+                method: "POST",
+                body: JSON.stringify(values),
+                headers: { "Content-type": "application/json; charset=UTF-8" },
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     return (
         <div className='h-screen'>
             <div className='flex justify-between h-full'>
                 <div className='xl:px-20 px-10 w-full flex flex-col h-full justify-center relative'>
                     <h1 className='text-center text-5xl font-bold mb-2'>LOGO</h1>
-                    <Form layout='vertical' size='large'>
+                    <Form layout='vertical' size='large' onFinish={onFinish}>
                         <Form.Item label="User Name" name={"username"} rules={[{ required: true, message: "Username Cannot Be Blank!" }]}>
                             <Input />
                         </Form.Item>
