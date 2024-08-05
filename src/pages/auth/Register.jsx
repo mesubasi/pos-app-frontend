@@ -1,10 +1,11 @@
 //Register.jsx
 
 import { Button, Form, Input, Carousel, message } from 'antd'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import AuthCarousel from '../../components/auth/AuthCarousel';
 
 const Register = () => {
+    const navigate = useNavigate();
     const onFinish = async (values) => {
         try {
             const res = await fetch("http://localhost:5000/api/auth/register", {
@@ -14,7 +15,7 @@ const Register = () => {
             });
             if (res.status === 200) {
                 message.success("Successfully Registered!");
-
+                navigate("/login");
             }
         } catch (error) {
             message.error("Ooppsss. Went Wrong!");
