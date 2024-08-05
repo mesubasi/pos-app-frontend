@@ -1,12 +1,16 @@
 //Register.jsx
 
 import { Button, Form, Input, Carousel, message } from 'antd'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import AuthCarousel from '../../components/auth/AuthCarousel';
+import { useState } from 'react';
 
 const Register = () => {
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
+
     const onFinish = async (values) => {
+        setLoading(true);
         try {
             const res = await fetch("http://localhost:5000/api/auth/register", {
                 method: "POST",
@@ -16,6 +20,7 @@ const Register = () => {
             if (res.status === 200) {
                 message.success("Successfully Registered!");
                 navigate("/login");
+                setLoading(false);
             }
         } catch (error) {
             message.error("Ooppsss. Went Wrong!");
@@ -49,7 +54,7 @@ const Register = () => {
                             <Input.Password />
                         </Form.Item>
                         <Form.Item>
-                            <Button type='primary' htmlType='submit' className='w-full' size='large'>Register</Button>
+                            <Button type='primary' htmlType='submit' className='w-full' size='large' loading={loading}>Register</Button>
                         </Form.Item>
                     </Form>
                     <div className='flex justify-center absolute left-0 bottom-10 w-full'>
