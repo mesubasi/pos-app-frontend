@@ -5,14 +5,17 @@ import { Link } from 'react-router-dom'
 import AuthCarousel from '../../components/auth/AuthCarousel';
 
 const Register = () => {
-    const onFinish = (values) => {
+    const onFinish = async (values) => {
         try {
-            fetch("http://localhost:5000/api/auth/register", {
+            const res = await fetch("http://localhost:5000/api/auth/register", {
                 method: "POST",
                 body: JSON.stringify(values),
                 headers: { "Content-type": "application/json; charset=UTF-8" },
             });
-            message.success("Successfully Registered!");
+            if (res.status === 200) {
+                message.success("Successfully Registered!");
+
+            }
         } catch (error) {
             message.error("Ooppsss. Went Wrong!");
             console.log(error);
