@@ -23,6 +23,8 @@ const Login = () => {
                 setLoading(false);
             } else if (res.status === 400) {
                 message.error("User Not Found!");
+            } else if (res.status === 403) {
+                message.error("Password Wrong!");
             }
         } catch (error) {
             message.error("Ooppsss. Went Wrong!");
