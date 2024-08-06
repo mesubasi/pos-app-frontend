@@ -19,7 +19,7 @@ const Login = () => {
             });
             if (res.status === 200) {
                 message.success("Successfully Registered!");
-                navigate("/login");
+                navigate("/");
                 setLoading(false);
             } else if (res.status === 400) {
                 message.error("User Not Found!");
