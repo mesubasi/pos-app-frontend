@@ -17,6 +17,9 @@ const Login = () => {
                 body: JSON.stringify(values),
                 headers: { "Content-type": "application/json; charset=UTF-8" },
             });
+
+            const user = await res.json();
+
             if (res.status === 200) {
                 message.success("Successfully Registered!");
                 navigate("/");
