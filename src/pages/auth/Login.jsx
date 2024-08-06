@@ -1,10 +1,13 @@
 //Login.jsx
 
 import { Button, Form, Input, Carousel, Checkbox } from 'antd'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import AuthCarousel from '../../components/auth/AuthCarousel';
+import { useState } from 'react';
 
 const Login = () => {
+    const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
 
     return (
         <div className='h-screen'>
