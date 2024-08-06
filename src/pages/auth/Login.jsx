@@ -21,6 +21,8 @@ const Login = () => {
                 message.success("Successfully Registered!");
                 navigate("/login");
                 setLoading(false);
+            } else if (res.status === 400) {
+                message.error("User Not Found!");
             }
         } catch (error) {
             message.error("Ooppsss. Went Wrong!");
