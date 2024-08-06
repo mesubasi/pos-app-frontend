@@ -12,7 +12,7 @@ const Login = () => {
     const onFinish = async (values) => {
         setLoading(true);
         try {
-            const res = await fetch("http://localhost:5000/api/auth/register", {
+            const res = await fetch("http://localhost:5000/api/auth/login", {
                 method: "POST",
                 body: JSON.stringify(values),
                 headers: { "Content-type": "application/json; charset=UTF-8" },
@@ -33,7 +33,7 @@ const Login = () => {
             <div className='flex justify-between h-full'>
                 <div className='xl:px-20 px-10 w-full flex flex-col h-full justify-center relative'>
                     <h1 className='text-center text-5xl font-bold mb-2'>LOGO</h1>
-                    <Form layout='vertical' size='large'>
+                    <Form layout='vertical' size='large' onFinish={onFinish}>
                         <Form.Item label="Email" name={"email"} rules={[{ required: true, message: "Email Cannot Be Blank!" }]}>
                             <Input />
                         </Form.Item>
