@@ -20,12 +20,12 @@ const Login = () => {
             if (res.status === 200) {
                 message.success("Successfully Registered!");
                 navigate("/");
-                setLoading(false);
             } else if (res.status === 400) {
                 message.error("User Not Found!");
             } else if (res.status === 403) {
                 message.error("Password Wrong!");
             }
+            setLoading(false);
         } catch (error) {
             message.error("Ooppsss. Went Wrong!");
             console.log(error);
