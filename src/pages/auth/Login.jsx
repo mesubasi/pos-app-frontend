@@ -55,7 +55,7 @@ const Login = () => {
                             </div>
                         </Form.Item>
                         <Form.Item>
-                            <Button type='primary' htmlType='submit' className='w-full' size='large'>Sign In</Button>
+                            <Button type='primary' htmlType='submit' className='w-full' size='large' loading={loading}>Sign In</Button>
                         </Form.Item>
                     </Form>
                     <div className='flex justify-center absolute left-0 bottom-10 w-full'>
