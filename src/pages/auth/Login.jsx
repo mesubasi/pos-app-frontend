@@ -9,6 +9,25 @@ const Login = () => {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
 
+    const onFinish = async (values) => {
+        setLoading(true);
+        try {
+            const res = await fetch("http://localhost:5000/api/auth/register", {
+                method: "POST",
+                body: JSON.stringify(values),
+                headers: { "Content-type": "application/json; charset=UTF-8" },
+            });
+            if (res.status === 200) {
+                message.success("Successfully Registered!");
+                navigate("/login");
+                setLoading(false);
+            }
+        } catch (error) {
+            message.error("Ooppsss. Went Wrong!");
+            console.log(error);
+        }
+    }
+
     return (
         <div className='h-screen'>
             <div className='flex justify-between h-full'>
