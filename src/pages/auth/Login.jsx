@@ -21,6 +21,10 @@ const Login = () => {
             const user = await res.json();
 
             if (res.status === 200) {
+                localStorage.setItem("posUser", JSON.stringify({
+                    username: user.username,
+                    email: user.email
+                }))
                 message.success("Successfully Registered!");
                 navigate("/");
             } else if (res.status === 400) {
