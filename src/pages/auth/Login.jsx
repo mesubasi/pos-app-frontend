@@ -36,6 +36,7 @@ const Login = () => {
         } catch (error) {
             message.error("Ooppsss. Went Wrong!");
             console.log(error);
+            setLoading(false);
         }
     }
 
