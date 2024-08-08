@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import CartPage from "./pages/CartPage";
 import InvoicesPage from "./pages/InvoicesPage";
@@ -28,3 +28,12 @@ function App() {
 }
 
 export default App;
+
+
+export const RouteControl = ({ children }) => {
+  if (localStorage.getItem("posUser")) {
+    return children
+  } else {
+    return <Navigate to="/login" />
+  }
+}
