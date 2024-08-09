@@ -17,11 +17,11 @@ function App() {
             <RouteControl>
               <HomePage />
             </RouteControl>} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/invoices" element={<InvoicesPage />} />
-          <Route path="/customers" element={<CustomerPage />} />
-          <Route path="/statistics" element={<StatisticsPage />} />
-          <Route path="/products" element={<ProductPage />} />
+          <Route path="/cart" element={<RouteControl><CartPage /></RouteControl>} />
+          <Route path="/invoices" element={<RouteControl><InvoicesPage /></RouteControl>} />
+          <Route path="/customers" element={<RouteControl><CustomerPage /></RouteControl>} />
+          <Route path="/statistics" element={<RouteControl><StatisticsPage /></RouteControl>} />
+          <Route path="/products" element={<RouteControl><ProductPage /></RouteControl>} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
         </Routes>
