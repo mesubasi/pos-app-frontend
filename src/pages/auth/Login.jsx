@@ -18,28 +18,26 @@ const Login = () => {
                 headers: { "Content-type": "application/json; charset=UTF-8" },
             });
 
-            const user = await res.json();
+            const data = await res.json();
 
             if (res.status === 200) {
-                localStorage.setItem("posUser", JSON.stringify({
-                    username: user.username,
-                    email: user.email
-                }))
-                message.success("Successfully Registered!");
+                localStorage.setItem("authToken", data.token);
+                localStorage.setItem("username", data.username);
+
+                message.success("Successfully Logged In!");
                 navigate("/");
-            } else if (res.status === 400) {
+            } else if (res.status === 404) {
                 message.error("User Not Found!");
             } else if (res.status === 403) {
-                message.error("Password Wrong!");
+                message.error("Invalid Password!");
             }
             setLoading(false);
         } catch (error) {
-            message.error("Ooppsss. Went Wrong!");
+            message.error("Oops. Something Went Wrong!");
             console.log(error);
             setLoading(false);
         }
     }
-
     return (
         <div className='h-screen'>
             <div className='flex justify-between h-full'>
