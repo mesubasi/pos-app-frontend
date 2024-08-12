@@ -65,10 +65,12 @@ const Header = () => {
             <BarChartOutlined className="md:text-2xl text-xl" />
             <span className="md:text-xs text-[10px]">Statistics</span>
           </Link>
-          <Link className="menu-link" onClick={logOut}>
-            <LogoutOutlined className="md:text-2xl text-xl" />
-            <span className="md:text-xs text-[10px]">Exit</span>
-          </Link>
+          <div onClick={logOut}>
+            <Link className="menu-link" >
+              <LogoutOutlined className="md:text-2xl text-xl" />
+              <span className="md:text-xs text-[10px]">Exit</span>
+            </Link>
+          </div>
         </div>
         <Badge count={cart.cartItems.length} offset={[0, 0]} className="md:hidden flex">
           <Link to="/cart" className="menu-link">
