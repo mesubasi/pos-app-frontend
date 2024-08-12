@@ -10,10 +10,13 @@ import { Edit } from "./Edit";
 const Categories = ({ categories, setCategories, setFiltered, products }) => {
     const [isModalAddOpen, setIsModalAddOpen] = useState(false);
     const [isModalEditOpen, setIsModalEditOpen] = useState(false);
+    const [categoryTitle, setCategoryTitle] = useState("All");
 
     useEffect(() => {
-        setFiltered(products)
-    }, [])
+        if (categoryTitle === "All") {
+            setFiltered(products);
+        }
+    }, [products, setFiltered,])
 
 
     return (
