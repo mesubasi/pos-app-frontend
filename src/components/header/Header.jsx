@@ -9,7 +9,7 @@ import {
   BarChartOutlined,
   LogoutOutlined,
 } from "@ant-design/icons";
-import { Badge, Input } from "antd";
+import { Badge, Input, message } from "antd";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import "./index.css";
@@ -22,6 +22,7 @@ const Header = () => {
     if (window.confirm("Çıkış Yapmak İstediğinize Emin Misiniz?")) {
       localStorage.removeItem("posUser");
       navigate("/login");
+      message.success("Exit Successful");
     }
   }
 
