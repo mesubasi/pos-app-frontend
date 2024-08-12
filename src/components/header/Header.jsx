@@ -65,7 +65,7 @@ const Header = () => {
             <BarChartOutlined className="md:text-2xl text-xl" />
             <span className="md:text-xs text-[10px]">Statistics</span>
           </Link>
-          <Link to="" className="menu-link">
+          <Link className="menu-link" onClick={logOut}>
             <LogoutOutlined className="md:text-2xl text-xl" />
             <span className="md:text-xs text-[10px]">Exit</span>
           </Link>
