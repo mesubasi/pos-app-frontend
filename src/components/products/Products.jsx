@@ -7,7 +7,7 @@ import Add from "./Add";
 import { useNavigate } from "react-router-dom";
 
 
-const Products = ({ categories, filtered }) => {
+const Products = ({ categories, filtered, products, setProducts }) => {
     const [isModalAddOpen, setIsModalAddOpen] = useState(false);
     const navigate = useNavigate();
 
