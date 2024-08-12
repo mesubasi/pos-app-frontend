@@ -30,10 +30,10 @@ const HomePage = () => {
             <Header />
             <div className="home flex md:flex-row flex-col px-6 justify-between gap-10 md:pb-0 pb-20 h-screen">
                 <div className="categories overflow-auto max-h-[calc(100vh_-_112px)] -mr-3 pb-4">
-                    <Categories categories={categories} setCategories={setCategories} />
+                    <Categories categories={categories} setCategories={setCategories} setFiltered={setFiltered} />
                 </div>
                 <div className="products flex-[8] max-h-[calc(100vh_-_112px)] overflow-y-auto pb-5 min-h-[500px]">
-                    <Products categories={categories} />
+                    <Products categories={categories} filtered={filtered} />
                 </div>
                 <div className="cart-wrapper min-w-[300px] md:-mr-[24px] md:-mt-[24px] border">
                     <CartTotals />
