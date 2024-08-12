@@ -8,6 +8,7 @@ import Products from "../components/products/Products";
 
 const HomePage = () => {
     const [categories, setCategories] = useState([]);
+    const [filtered, setFiltered] = useState([]);
 
     useEffect(() => {
         const getCategories = async () => {
