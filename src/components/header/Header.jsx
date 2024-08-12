@@ -17,6 +17,12 @@ import "./index.css";
 const Header = () => {
   const cart = useSelector((state) => state.cart);
 
+  const logOut = () => {
+    if (window.confirm("Çıkış Yapmak İstediğinize Emin Misiniz?")) {
+      localStorage.removeItem("posUser");
+    }
+  }
+
   return (
     <div className="border-b mb-6">
       <header className="header py-4 px-6 flex justify-between items-center gap-10">
