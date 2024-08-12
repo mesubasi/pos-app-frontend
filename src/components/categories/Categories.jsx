@@ -7,9 +7,14 @@ import "./style.css"
 import { Edit } from "./Edit";
 
 
-const Categories = ({ categories, setCategories }) => {
+const Categories = ({ categories, setCategories, setFiltered, products }) => {
     const [isModalAddOpen, setIsModalAddOpen] = useState(false);
     const [isModalEditOpen, setIsModalEditOpen] = useState(false);
+
+    useEffect(() => {
+        setFiltered(products)
+    }, [])
+
 
     return (
         <ul className="flex md:flex-col gap-4 text-lg">
