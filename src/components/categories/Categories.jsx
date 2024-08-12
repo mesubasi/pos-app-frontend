@@ -1,13 +1,13 @@
 //Categories.jsx
 
 import { PlusOutlined, EditOutlined } from "@ant-design/icons"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Add from "./Add";
 import "./style.css"
 import { Edit } from "./Edit";
 
 
-const Categories = ({ categories, setCategories, products, setFiltered }) => {
+const Categories = ({ categories, setCategories, setFiltered, products }) => {
     const [isModalAddOpen, setIsModalAddOpen] = useState(false);
     const [isModalEditOpen, setIsModalEditOpen] = useState(false);
     const [categoryTitle, setCategoryTitle] = useState("All");
