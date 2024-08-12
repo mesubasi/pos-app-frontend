@@ -7,7 +7,7 @@ import "./style.css"
 import { Edit } from "./Edit";
 
 
-const Categories = ({ categories, setCategories, setFiltered, products }) => {
+const Categories = ({ categories, setCategories, products, setFiltered }) => {
     const [isModalAddOpen, setIsModalAddOpen] = useState(false);
     const [isModalEditOpen, setIsModalEditOpen] = useState(false);
     const [categoryTitle, setCategoryTitle] = useState("All");
@@ -15,14 +15,18 @@ const Categories = ({ categories, setCategories, setFiltered, products }) => {
     useEffect(() => {
         if (categoryTitle === "All") {
             setFiltered(products);
+        } else {
+            setFiltered(products.filter((item) => item.category === categoryTitle));
         }
-    }, [products, setFiltered,])
+    }, [products, setFiltered, categoryTitle])
 
 
     return (
         <ul className="flex md:flex-col gap-4 text-lg">
             {categories.map((item) => (
-                <li key={item._id} className="rounded-md bg-green-700 text-white hover:bg-pink-700 transition-all px-6 py-10 cursor-pointer text-center min-w-[145px]">
+                <li key={item._id} className="rounded-md bg-green-700 text-white hover:bg-pink-700 transition-all px-6 py-10 cursor-pointer text-center min-w-[145px]" onClick={() => {
+                    setCategoryTitle(item.title)
+                }}>
                     <span>{item.title}</span>
                 </li>
             ))}
