@@ -31,7 +31,7 @@ const Add = ({ isModalAddOpen, setIsModalAddOpen, categories, products, setProdu
                     <Input placeholder='Enter Product Name.' />
                 </Form.Item>
                 <Form.Item name="img" label="Add Product Image" rules={[{ required: true, message: "Product Image Field Cannot Be Empty!", }]}>
-                    <Input placeholder='Enter Product Iamge.' />
+                    <Input placeholder='Enter Product Image.' />
                 </Form.Item>
                 <Form.Item name="price" label="Add Product Price" rules={[{ required: true, message: "Product Price Field Cannot Be Empty!", }]}>
                     <Input placeholder='Enter Product Price.' />
