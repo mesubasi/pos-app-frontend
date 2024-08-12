@@ -11,20 +11,6 @@ const Products = ({ categories, filtered }) => {
     const [isModalAddOpen, setIsModalAddOpen] = useState(false);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const getProducts = async () => {
-            try {
-                const res = await fetch("http://localhost:5000/api/products/get-all-product");
-                const data = await res.json();
-                setProducts(data);
-            } catch (error) {
-                console.log(error);
-            }
-        };
-        getProducts();
-    }, []);
-
-
     return (
         <div className="products-wrapper grid grid-cols-card gap-4">
             {filtered.map((item) => (
