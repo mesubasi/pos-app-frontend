@@ -19,7 +19,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   const logOut = () => {
-    if (window.confirm("Çıkış Yapmak İstediğinize Emin Misiniz?")) {
+    if (window.confirm("Are you sure you want to check out?")) {
       localStorage.removeItem("posUser");
       navigate("/login");
       message.success("Exit Successful");
