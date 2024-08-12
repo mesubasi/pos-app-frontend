@@ -7,9 +7,8 @@ import Add from "./Add";
 import { useNavigate } from "react-router-dom";
 
 
-const Products = ({ categories }) => {
+const Products = ({ categories, filtered }) => {
     const [isModalAddOpen, setIsModalAddOpen] = useState(false);
-    const [products, setProducts] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -28,7 +27,7 @@ const Products = ({ categories }) => {
 
     return (
         <div className="products-wrapper grid grid-cols-card gap-4">
-            {products.map((item) => (
+            {filtered.map((item) => (
                 <ProductItem item={item} key={item._id} />
             ))}
             <div className="rounded-md product-item hover:shadow-lg transition-all border cursor-pointer select-none bg-purple-800 flex justify-center items-center hover:opacity-90" onClick={() => setIsModalAddOpen(true)}>
