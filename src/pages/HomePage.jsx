@@ -31,7 +31,7 @@ const HomePage = () => {
                 <div className="categories overflow-auto max-h-[calc(100vh_-_112px)] -mr-3 pb-4">
                     <Categories categories={categories} setCategories={setCategories} />
                 </div>
-                <div className="products flex-[8] max-h-[calc(100vh_-_112px)] overflow-y-auto pb-5">
+                <div className="products flex-[8] max-h-[calc(100vh_-_112px)] overflow-y-auto pb-5 min-h-[500px]:">
                     <Products categories={categories} />
                 </div>
                 <div className="cart-wrapper min-w-[300px] md:-mr-[24px] md:-mt-[24px] border">
