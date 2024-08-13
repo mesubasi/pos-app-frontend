@@ -14,7 +14,7 @@ import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import "./index.css";
 
-const Header = () => {
+const Header = ({ setSearch }) => {
   const cart = useSelector((state) => state.cart);
   const navigate = useNavigate();
 
@@ -40,6 +40,7 @@ const Header = () => {
             placeholder="Product Search"
             prefix={<SearchOutlined />}
             className="rounded-full max-w-[800px]"
+
           />
         </div>
         <div className="menu-links">
