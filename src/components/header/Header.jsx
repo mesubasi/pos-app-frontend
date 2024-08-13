@@ -40,7 +40,7 @@ const Header = ({ setSearch }) => {
             placeholder="Product Search"
             prefix={<SearchOutlined />}
             className="rounded-full max-w-[800px]"
-
+            onChange={(e) => setSearch(e.target.value.toLowerCase())}
           />
         </div>
         <div className="menu-links">
