@@ -42,13 +42,13 @@ const HomePage = () => {
 
     return (
         <>
-            <Header setSearch={setSearch}/>
+            <Header setSearch={setSearch} />
             <div className="home flex md:flex-row flex-col px-6 justify-between gap-10 md:pb-0 pb-20 h-screen">
                 <div className="categories overflow-auto max-h-[calc(100vh_-_112px)] -mr-3 pb-4">
                     <Categories categories={categories} setCategories={setCategories} setFiltered={setFiltered} products={products} />
                 </div>
                 <div className="products flex-[8] max-h-[calc(100vh_-_112px)] overflow-y-auto pb-5 min-h-[500px]">
-                    <Products categories={categories} filtered={filtered} products={products} setProducts={setProducts} />
+                    <Products categories={categories} filtered={filtered} products={products} setProducts={setProducts} search={search} />
                 </div>
                 <div className="cart-wrapper min-w-[300px] md:-mr-[24px] md:-mt-[24px] border">
                     <CartTotals />
