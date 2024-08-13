@@ -13,9 +13,11 @@ const Products = ({ categories, filtered, products, setProducts, search }) => {
 
     return (
         <div className="products-wrapper grid grid-cols-card gap-4">
-            {filtered.map((item) => (
-                <ProductItem item={item} key={item._id} />
-            ))}
+            {filtered
+                .filter((product) => product.title.toLowerCase().includes(search))
+                .map((item) => (
+                    <ProductItem item={item} key={item._id} />
+                ))}
             <div className="rounded-md product-item hover:shadow-lg transition-all border cursor-pointer select-none bg-purple-800 flex justify-center items-center hover:opacity-90" onClick={() => setIsModalAddOpen(true)}>
                 <PlusOutlined className="text-white md:text-2xl " />
             </div>
