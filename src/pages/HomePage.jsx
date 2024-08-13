@@ -10,6 +10,7 @@ const HomePage = () => {
     const [categories, setCategories] = useState([]);
     const [filtered, setFiltered] = useState([]);
     const [products, setProducts] = useState([]);
+    const [search, setSearch] = useState("");
 
     useEffect(() => {
         const getProducts = async () => {
@@ -41,7 +42,7 @@ const HomePage = () => {
 
     return (
         <>
-            <Header />
+            <Header setSearch={setSearch}/>
             <div className="home flex md:flex-row flex-col px-6 justify-between gap-10 md:pb-0 pb-20 h-screen">
                 <div className="categories overflow-auto max-h-[calc(100vh_-_112px)] -mr-3 pb-4">
                     <Categories categories={categories} setCategories={setCategories} setFiltered={setFiltered} products={products} />
