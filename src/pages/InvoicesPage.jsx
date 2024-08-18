@@ -170,7 +170,8 @@ const InvoicesPage = () => {
             key: 'totalAmount',
             render: (text) => {
                 return <span>{text} $</span>
-            }
+            },
+            sorter: (a, b) => a.totalAmount - b.totalAmount,
         },
         {
             title: 'Action',
