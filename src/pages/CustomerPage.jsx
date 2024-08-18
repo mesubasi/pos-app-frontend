@@ -1,6 +1,6 @@
 //InvoicesPage.jsx
 
-import { Table, Card, Space, Input } from 'antd';
+import { Table, Card, Space, Input, Button } from 'antd';
 import Header from '../components/header/Header';
 import { useEffect, useRef, useState } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
