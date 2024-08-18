@@ -1,4 +1,4 @@
-import { Button, Popconfirm, Table } from 'antd';
+import { Button, Input, Popconfirm, Space, Table } from 'antd';
 import Header from '../components/header/Header';
 import { Card } from 'antd';
 import { useRef, useState } from 'react';
@@ -6,6 +6,7 @@ import CreateInvoice from '../components/cart/CreateInvoice';
 import { PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons"
 import { useDispatch, useSelector } from 'react-redux';
 import Highlighter from 'react-highlight-words';
+import { SearchOutlined } from '@ant-design/icons';
 import { increase, decrease, reset } from "../redux/cartSlice";
 
 const CartPage = () => {
