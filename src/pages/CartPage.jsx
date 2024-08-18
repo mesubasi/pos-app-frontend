@@ -1,13 +1,16 @@
 import { Button, Popconfirm, Table } from 'antd';
 import Header from '../components/header/Header';
 import { Card } from 'antd';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import CreateInvoice from '../components/cart/CreateInvoice';
 import { PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons"
 import { useDispatch, useSelector } from 'react-redux';
 import { increase, decrease, reset } from "../redux/cartSlice";
 
 const CartPage = () => {
+    const [searchText, setSearchText] = useState('');
+    const [searchedColumn, setSearchedColumn] = useState('');
+    const searchInput = useRef(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const cart = useSelector((state) => state.cart);
     const dispatch = useDispatch();
