@@ -141,11 +141,13 @@ const InvoicesPage = () => {
             title: 'Customer Name',
             dataIndex: 'customerName',
             key: 'customerName',
+            ...getColumnSearchProps('customerName'),
         },
         {
             title: 'Phone Number',
             dataIndex: 'phoneNumber',
             key: 'phoneNumber',
+            ...getColumnSearchProps('phoneNumber'),
         },
         {
             title: 'Create Date',
@@ -160,6 +162,7 @@ const InvoicesPage = () => {
             title: 'Payment Method',
             dataIndex: 'paymentMethod',
             key: 'paymentMethod',
+            ...getColumnSearchProps('paymentMethod'),
         },
         {
             title: 'Total Price',
