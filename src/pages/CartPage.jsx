@@ -153,11 +153,13 @@ const CartPage = () => {
             dataIndex: 'title',
             key: 'title',
             width: "150px",
+            ...getColumnSearchProps('title'),
         },
         {
             title: 'Category',
             dataIndex: 'category',
             key: 'category',
+            ...getColumnSearchProps('category'),
         },
         {
             title: 'Product Price',
