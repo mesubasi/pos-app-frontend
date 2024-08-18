@@ -137,11 +137,13 @@ const CustomerPage = () => {
             title: 'Customer Name',
             dataIndex: 'customerName',
             key: 'customerName',
+            ...getColumnSearchProps('customerName'),
         },
         {
             title: 'Phone Number',
             dataIndex: 'phoneNumber',
             key: 'phoneNumber',
+            ...getColumnSearchProps('phoneNumber'),
         },
         {
             title: 'Transaction Date',
