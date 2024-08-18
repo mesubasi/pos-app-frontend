@@ -1,9 +1,11 @@
 //InvoicesPage.jsx
 
-import { Button, Table } from 'antd';
+import { Button, Table, Space, Table, Input } from 'antd';
 import Header from '../components/header/Header';
 import { useEffect, useRef, useState } from 'react';
 import PrintInvoices from '../components/invoices/PrintInvoices';
+import { SearchOutlined } from '@ant-design/icons';
+import Highlighter from 'react-highlight-words';
 
 
 const InvoicesPage = () => {
