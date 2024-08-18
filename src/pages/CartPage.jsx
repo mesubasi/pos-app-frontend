@@ -57,7 +57,8 @@ const CartPage = () => {
                 return (
                     <span>{text.toFixed(2)} $</span>
                 )
-            }
+            },
+            sorter: (a, b) => a.price - b.price,
         },
         {
             title: 'Product Quantity',
