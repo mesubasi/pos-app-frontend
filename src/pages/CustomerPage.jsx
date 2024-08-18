@@ -1,8 +1,10 @@
 //InvoicesPage.jsx
 
-import { Table, Card } from 'antd';
+import { Table, Card, Space, Input } from 'antd';
 import Header from '../components/header/Header';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { SearchOutlined } from '@ant-design/icons';
+import Highlighter from 'react-highlight-words';
 
 const CustomerPage = () => {
     const [invoiceItems, setInvoiceItems] = useState([]);
