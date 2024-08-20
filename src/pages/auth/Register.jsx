@@ -24,7 +24,9 @@ const Register = () => {
             }
             if (res.status === 403) {
                 message.error("Email already in use!");
-                navigate(0);
+                const timeOut = setTimeout(() => {
+                    navigate(0);
+                }, 3000);
                 setLoading(false);
             }
         } catch (error) {
