@@ -22,6 +22,11 @@ const Register = () => {
                 navigate("/login");
                 setLoading(false);
             }
+            if (res.status === 403) {
+                message.error("Email already in use!");
+                navigate(0);
+                setLoading(false);
+            }
         } catch (error) {
             message.error("Ooppsss. Went Wrong!");
             console.log(error);
