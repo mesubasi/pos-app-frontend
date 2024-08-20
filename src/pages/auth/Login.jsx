@@ -21,9 +21,13 @@ const Login = () => {
             const data = await res.json();
 
             if (res.status === 200) {
-                localStorage.setItem("authToken", data.token);
-                localStorage.setItem("username", data.username);
-
+                localStorage.setItem(
+                    "posUser",
+                    JSON.stringify({
+                        username: data.user.username,
+                        email: data.user.email,
+                    })
+                );
                 message.success("Successfully Logged In!");
                 navigate("/");
             } else if (res.status === 404) {

@@ -34,7 +34,7 @@ export default App;
 
 
 export const RouteControl = ({ children }) => {
-  if (localStorage.getItem("authToken")) {
+  if (localStorage.getItem("posUser")) {
     return children
   } else {
     return <Navigate to="/login" />
