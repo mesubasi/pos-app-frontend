@@ -16,7 +16,7 @@ const StatisticsPage = () => {
             <div className="px-6 md:pb-0 pb-20">
                 <h1 className='text-4xl font-bold text-center mb-4'>Statistics</h1>
                 <div className='statistic-section'>
-                    <h2 className='text-xl'>Welcome {" "} <span className='text-green-700 font-bold text-xl'>admin</span></h2>
+                    <h2 className='text-xl'>Welcome {" "} <span className='text-green-700 font-bold text-xl'>{user.username}</span></h2>
                     <div className='statistic-cards grid xl:grid-cols-4 md:grid-cols-2  my-10 md:gap-10 gap-4'>
                         <StatisticCard title={"Total Customer"} amount={"10"} img={"../../public/images/user.png"} />
                         <StatisticCard title={"Total Profit"} amount={"660.96 $"} img={"../../public/images/money.png"} />
