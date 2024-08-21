@@ -35,7 +35,10 @@ const Header = ({ setSearch }) => {
             <h2 className="text-2xl font-bold md:text-4xl">LOGO</h2>
           </Link>
         </div>
-        <div className="header-search flex-1 flex justify-center">
+        <div className="header-search flex-1 flex justify-center"
+          onClick={() => {
+            pathname !== "/" && navigate("/")
+          }}>
           <Input
             size="large"
             placeholder="Product Search"
