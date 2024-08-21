@@ -24,10 +24,10 @@ const StatisticsPage = () => {
                         <StatisticCard title={"Total Product"} amount={"28"} img={"../../public/images/product.png"} />
                     </div>
                     <div className='flex justify-between gap-10 lg:flex-row flex-col items-center'>
-                        <div className='lg:w-1/2 lg:h-full h-72'>
+                        <div className='lg:w-1/2 lg:h-80 h-80'>
                             <BasicAreaPlot />
                         </div>
-                        <div className='lg:w-1/2 lg:h-full h-72'>
+                        <div className='lg:w-1/2 lg:h-80 h-80'>
                             <BasicDonutPlot />
                         </div>
                     </div>
