@@ -6,6 +6,8 @@ import BasicDonutPlot from '../components/statistics/BasicDonutPlot';
 import StatisticCard from '../components/statistics/StatisticCard';
 
 const StatisticsPage = () => {
+    const user = JSON.parse(localStorage.getItem("posUser"));
+
 
 
     return (
