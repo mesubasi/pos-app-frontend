@@ -11,11 +11,12 @@ import {
 } from "@ant-design/icons";
 import { Badge, Input, message } from "antd";
 import { useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./index.css";
 
 const Header = ({ setSearch }) => {
   const cart = useSelector((state) => state.cart);
+  const { pathname } = useLocation();
   const navigate = useNavigate();
 
   const logOut = () => {
