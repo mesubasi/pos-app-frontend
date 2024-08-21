@@ -160,7 +160,7 @@ const CustomerPage = () => {
             <Header />
             <div className="px-6">
                 <h2 className='text-4xl font-bold text-center mb-4'>Customers</h2>
-                <Table dataSource={invoiceItems.map((item) => ({ ...item, key: item._id }))} columns={columns} bordered pagination={false} scroll={{ x: 1000, y: 300 }} />
+                <Table dataSource={invoiceItems} columns={columns} bordered pagination={false} scroll={{ x: 1000, y: 300 }} rowKey="_id" />
                 <div className="cart-total flex justify-end mt-4">
                     <Card className="w-72 border-2">
                     </Card>
