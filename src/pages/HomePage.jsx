@@ -44,7 +44,7 @@ const HomePage = () => {
     return (
         <>
             <Header setSearch={setSearch} />
-            {product && categories ? (
+            {products && categories ? (
                 <div className="home flex md:flex-row flex-col px-6 justify-between gap-10 md:pb-0 pb-20 h-screen">
                     <div className="categories overflow-auto max-h-[calc(100vh_-_112px)] -mr-3 pb-4">
                         <Categories categories={categories} setCategories={setCategories} setFiltered={setFiltered} products={products} />
@@ -56,7 +56,7 @@ const HomePage = () => {
                         <CartTotals />
                     </div>
                 </div>
-            ) : <Spin />}
+            ) : (<Spin size="large" className="absolute h-screen w-screen flex items-center justify-center" />)}
         </>
     )
 }
