@@ -1,6 +1,6 @@
 //InvoicesPage.jsx
 
-import { Button, Table, Space, Input } from 'antd';
+import { Button, Table, Space, Input, Spin } from 'antd';
 import Header from '../components/header/Header';
 import { useEffect, useRef, useState } from 'react';
 import PrintInvoices from '../components/invoices/PrintInvoices';
