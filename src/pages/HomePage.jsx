@@ -8,9 +8,9 @@ import Products from "../components/products/Products";
 import { Spin } from "antd";
 
 const HomePage = () => {
-    const [categories, setCategories] = useState([]);
+    const [categories, setCategories] = useState();
     const [filtered, setFiltered] = useState([]);
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState();
     const [search, setSearch] = useState("");
 
     useEffect(() => {
