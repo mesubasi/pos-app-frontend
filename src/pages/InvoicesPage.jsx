@@ -192,7 +192,7 @@ const InvoicesPage = () => {
             {invoiceItems ? (<div className="px-6">
                 <h2 className='text-4xl font-bold text-center mb-4'>Invoices</h2>
                 <Table dataSource={invoiceItems} columns={columns} bordered pagination={false} virtual scroll={{ x: 1000, y: 300 }} rowKey="_id" />
-            </div>) : (<Spin size="large" className="absolute h-screen w-screen flex items-center justify-center" />)}
+            </div>) : (<Spin size="large" className="absolute top-1/2 h-screen w-screen flex justify-center" />)}
             <PrintInvoices isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} customer={customer} />
         </>
     );
