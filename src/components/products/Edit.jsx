@@ -113,7 +113,7 @@ const Edit = () => {
     return (
         <>
             <Table bordered dataSource={products} columns={columns} rowKey={"_id"} scroll={{ x: 1000, y: 600 }} />
-            <Modal title="Add New Product" open={isEditModalOpen} onCancel={() => setIsEditModalOpen(false)} footer={false}>
+            <Modal title="Edit Products" open={isEditModalOpen} onCancel={() => setIsEditModalOpen(false)} footer={false}>
                 <Form layout="vertical" onFinish={onFinish} form={form} initialValues={editingItem}>
                     <Form.Item name="title" label="Add Product Name" rules={[{ required: true, message: "Product Field Cannot Be Empty!", }]}>
                         <Input placeholder='Enter Product Name.' />
