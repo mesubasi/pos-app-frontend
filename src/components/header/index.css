@@ -5,6 +5,6 @@
   @apply flex flex-col items-center hover:text-[#40a9ff] transition-all gap-y-[2px];
 }
 
-.menu-link.activate {
+.menu-link.active {
   @apply !text-[#40a9ff];
 }
