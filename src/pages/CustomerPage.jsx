@@ -1,13 +1,13 @@
 //InvoicesPage.jsx
 
-import { Table, Card, Space, Input, Button } from 'antd';
+import { Table, Card, Space, Input, Button, Spin } from 'antd';
 import Header from '../components/header/Header';
 import { useEffect, useRef, useState } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
 import Highlighter from 'react-highlight-words';
 
 const CustomerPage = () => {
-    const [invoiceItems, setInvoiceItems] = useState([]);
+    const [invoiceItems, setInvoiceItems] = useState();
     const [searchText, setSearchText] = useState('');
     const [searchedColumn, setSearchedColumn] = useState('');
     const searchInput = useRef(null);
@@ -158,14 +158,14 @@ const CustomerPage = () => {
     return (
         <>
             <Header />
-            <div className="px-6">
+            {invoiceItems ? (<div className="px-6">
                 <h2 className='text-4xl font-bold text-center mb-4'>Customers</h2>
                 <Table dataSource={invoiceItems} columns={columns} bordered pagination={false} scroll={{ x: 1000, y: 300 }} rowKey="_id" />
                 <div className="cart-total flex justify-end mt-4">
                     <Card className="w-72 border-2">
                     </Card>
                 </div>
-            </div>
+            </div>) : (<Spin size="large" className="absolute top-1/2 h-screen w-screen flex justify-center" />)}
         </>
     );
 };
