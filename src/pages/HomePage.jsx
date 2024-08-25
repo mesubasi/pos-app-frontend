@@ -56,7 +56,7 @@ const HomePage = () => {
                         <CartTotals />
                     </div>
                 </div>
-            ) : (<Spin size="large" className="absolute h-screen w-screen flex items-center justify-center" />)}
+            ) : (<Spin size="large" className="absolute top-1/2 h-screen w-screen flex justify-center" />)}
         </>
     )
 }
