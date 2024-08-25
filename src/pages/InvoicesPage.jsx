@@ -178,10 +178,11 @@ const InvoicesPage = () => {
             dataIndex: 'action',
             key: 'totalAmount',
             render: (_, record) => {
-                return <Button type='link' className='pl-0' onClick={() => {
+                return <Button type='link' size="middle" className='border-2 border-blue-600' onClick={() => {
                     setIsModalOpen(true)
                     setCustomer(record)
-                }}> Print</ Button>
+                }
+                } >Print</ Button >
             }
         },
     ];
