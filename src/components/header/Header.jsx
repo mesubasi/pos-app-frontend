@@ -48,37 +48,37 @@ const Header = ({ setSearch }) => {
           />
         </div>
         <div className="menu-links">
-          <Link to="/" className="menu-link">
+          <Link to="/" className={`menu-link`}>
             <HomeOutlined className="md:text-2xl text-xl" />
             <span className="md:text-xs text-[10px]">Home</span>
           </Link>
           <Badge count={cart.cartItems.length} offset={[0, 0]} className="md:flex hidden">
-            <Link to="/cart" className="menu-link">
+            <Link to="/cart" className={`menu-link`}>
               <ShoppingCartOutlined className="text-2xl" />
               <span className="md:text-xs text-[10px]">Cart</span>
             </Link>
           </Badge>
-          <Link to={"/invoices"} className="menu-link">
+          <Link to={"/invoices"} className={`menu-link`}>
             <CopyOutlined className="md:text-2xl text-xl" />
             <span className="md:text-xs text-[10px]">Invoices</span>
           </Link>
-          <Link to={"/customers"} className="menu-link">
+          <Link to={"/customers"} className={`menu-link`}>
             <UserOutlined className="md:text-2xl text-xl" />
             <span className="md:text-xs text-[10px]">Customers</span>
           </Link>
-          <Link to={"/statistics"} className="menu-link">
+          <Link to={"/statistics"} className={`menu-link`}>
             <BarChartOutlined className="md:text-2xl text-xl" />
             <span className="md:text-xs text-[10px]">Statistics</span>
           </Link>
           <div onClick={logOut}>
-            <Link className="menu-link" >
+            <Link className={`menu-link`} >
               <LogoutOutlined className="md:text-2xl text-xl" />
               <span className="md:text-xs text-[10px]">Exit</span>
             </Link>
           </div>
         </div>
         <Badge count={cart.cartItems.length} offset={[0, 0]} className="md:hidden flex">
-          <Link to="/cart" className="menu-link">
+          <Link to="/cart" className={`menu-link`}>
             <ShoppingCartOutlined className="md:text-2xl text-xl" />
             <span className="md:text-xs text-[10px]">Cart</span>
           </Link>
