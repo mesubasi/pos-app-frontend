@@ -7,8 +7,12 @@ import StatisticsPage from "./pages/StatisticsPage";
 import Register from "./pages/auth/Register";
 import Login from "./pages/auth/Login";
 import ProductPage from "./components/products/ProductPage";
+import { useSelector } from "react-redux";
 
 function App() {
+
+  const cart = useSelector((state) => state.cart);
+
   return (
     <>
       <BrowserRouter>
