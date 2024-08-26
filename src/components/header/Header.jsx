@@ -76,8 +76,7 @@ const Header = ({ setSearch }) => {
             <span className="md:text-xs text-[10px]">Statistics</span>
           </Link>
           <div onClick={logOut}>
-            <Link className={`menu-link ${pathname === "/" && "active"
-              }`} >
+            <Link className={`menu-link`} >
               <LogoutOutlined className="md:text-2xl text-xl" />
               <span className="md:text-xs text-[10px]">Exit</span>
             </Link>
