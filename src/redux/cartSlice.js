@@ -3,9 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
-    cartItems: localStorage.getItem("cart")
-      ? localStorage.getItem("cart").cartItems
-      : [],
+    cartItems: [],
     total: 0,
     tax: 8,
   },
