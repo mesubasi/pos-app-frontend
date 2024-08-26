@@ -8,6 +8,7 @@ import Register from "./pages/auth/Register";
 import Login from "./pages/auth/Login";
 import ProductPage from "./components/products/ProductPage";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 function App() {
 
