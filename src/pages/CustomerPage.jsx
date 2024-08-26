@@ -121,7 +121,7 @@ const CustomerPage = () => {
     useEffect(() => {
         const getInvoices = async () => {
             try {
-                const res = await fetch("http://localhost:5000/api/invoices/get-all-invoices")
+                const res = await fetch(process.env.REACT_APP_SERVER_URL + "/api/invoices/get-all-invoices")
                 const data = await res.json();
                 setInvoiceItems(data);
             } catch (error) {

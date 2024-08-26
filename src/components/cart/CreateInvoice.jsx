@@ -14,7 +14,7 @@ const CreateInvoice = ({ isModalOpen, setIsModalOpen }) => {
 
     const onFinish = async (values) => {
         try {
-            const res = await fetch("http://localhost:5000/api/invoices/add-invoices", {
+            const res = await fetch(process.env.REACT_APP_SERVER_URL + "/api/invoices/add-invoices", {
                 method: "POST",
                 body: JSON.stringify({
                     ...values,

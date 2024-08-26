@@ -11,7 +11,7 @@ const Edit = () => {
     useEffect(() => {
         const getProducts = async () => {
             try {
-                const res = await fetch("http://localhost:5000/api/products/get-all-product");
+                const res = await fetch(process.env.REACT_APP_SERVER_URL + "/api/products/get-all-product");
                 const data = await res.json();
                 setProducts(data);
             } catch (error) {
@@ -24,7 +24,7 @@ const Edit = () => {
     useEffect(() => {
         const getCategories = async () => {
             try {
-                const res = await fetch("http://localhost:5000/api/categories/get-all-category");
+                const res = await fetch(process.env.REACT_APP_SERVER_URL + "/api/categories/get-all-category");
                 const data = await res.json();
                 data && setCategories(data.map((item) => {
                     return { ...item, value: item.title }
@@ -38,7 +38,7 @@ const Edit = () => {
 
     const onFinish = async (values) => {
         try {
-            await fetch("http://localhost:5000/api/products/update-product", {
+            await fetch(process.env.REACT_APP_SERVER_URL + "/api/products/update-product", {
                 method: "PUT",
                 body: JSON.stringify({ ...values, productId: editingItem._id }),
                 headers: { "Content-type": "application/json; charset=UTF-8" },

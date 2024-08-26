@@ -5,7 +5,7 @@ export const Edit = ({ isModalEditOpen, setIsModalEditOpen, categories, setCateg
     const [editingRow, setEditingRow] = useState({})
     const onFinish = async (values) => {
         try {
-            await fetch("http://localhost:5000/api/categories/update-category",
+            await fetch(process.env.REACT_APP_SERVER_URL + "/api/categories/update-category",
                 {
                     method: "PUT",
                     body: JSON.stringify({ ...values, categoryId: editingRow._id }),
@@ -28,7 +28,7 @@ export const Edit = ({ isModalEditOpen, setIsModalEditOpen, categories, setCateg
     const deleteCategory = async (id) => {
         if (window.confirm("Are you sure?")) {
             try {
-                await fetch("http://localhost:5000/api/categories/delete-category", {
+                await fetch(process.env.REACT_APP_SERVER_URL + "/api/categories/delete-category", {
                     method: "DELETE",
                     body: JSON.stringify({ categoryId: id }),
                     headers: { "Content-type": "application/json; charset=UTF-8" },
