@@ -5,7 +5,7 @@ import CartTotals from "../components/cart/CartTotals";
 import Categories from "../components/categories/Categories";
 import Header from "../components/header/Header";
 import Products from "../components/products/Products";
-import { Spin } from "antd";
+import { Spin, Alert } from "antd";
 
 const HomePage = () => {
     const [categories, setCategories] = useState();
@@ -44,6 +44,11 @@ const HomePage = () => {
     return (
         <>
             <Header setSearch={setSearch} />
+            <Alert
+                message="Please add appropriate content for the add product function!"
+                banner
+                closable
+            />
             {products && categories ? (
                 <div className="home flex md:flex-row flex-col px-6 justify-between gap-10 md:pb-0 pb-20 h-screen">
                     <div className="categories overflow-auto max-h-[calc(100vh_-_112px)] -mr-3 pb-4">
