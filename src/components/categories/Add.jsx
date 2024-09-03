@@ -1,7 +1,7 @@
 //Add.jsx
 
 import { Button, Form, Input, Modal, message } from 'antd'
-import React from 'react'
+import React, { useState } from 'react'
 
 const Add = ({ isModalAddOpen, setIsModalAddOpen, categories, setCategories }) => {
     const [form] = Form.useForm()
@@ -17,6 +17,7 @@ const Add = ({ isModalAddOpen, setIsModalAddOpen, categories, setCategories }) =
                 _id: Math.random(),
                 title: values.title
             }])
+            setIsModalAddOpen(false);
         } catch (err) {
             console.log(err);
         }
