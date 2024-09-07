@@ -19,13 +19,29 @@ const Header = ({ setSearch }) => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
-  const logOut = () => {
-    if (window.confirm("Are you sure you want to check out?")) {
-      localStorage.removeItem("posUser");
-      navigate("/login");
-      message.success("Exit Successful");
+  const logOut = async () => {
+    try {
+      const response = await fetch(process.env.REACT_APP_SERVER_URL + "/api/auth/logout", {
+        method: "POST",
+        credentials: "include", // If your server uses cookies, include credentials
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        localStorage.removeItem("posUser");
+        navigate("/login");
+        message.success("Logout Successful");
+      } else {
+        throw new Error("Logout failed");
+      }
+    } catch (error) {
+      message.error("Logout failed: " + error.message);
+      console.error("Logout error:", error);
     }
-  }
+  };
+
 
   return (
     <div className="border-b mb-6">
