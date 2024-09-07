@@ -11,51 +11,54 @@ const HomePage = () => {
     const [products, setProducts] = useState();
     const [search, setSearch] = useState("");
 
-    const token = localStorage.getItem("accessToken");
 
     useEffect(() => {
         const getProducts = async () => {
             try {
+                const token = JSON.parse(localStorage.getItem("posUser"))?.accessToken;
                 const res = await fetch(process.env.REACT_APP_SERVER_URL + "/api/products/get-all-product", {
                     headers: {
                         "Authorization": `Bearer ${token}`,
-                        "Content-type": "application/json; charset=UTF-8"
-                    }
+                        "Content-Type": "application/json",
+                    },
                 });
-                if (res.status === 401) {
-                    throw new Error("Unauthorized");
+                if (res.ok) {
+                    const data = await res.json();
+                    setProducts(data);
+                } else {
+                    console.error("Failed to fetch products:", res.statusText);
                 }
-                const data = await res.json();
-                setProducts(data);
             } catch (error) {
                 console.log(error);
             }
         };
         getProducts();
-    }, [token]);
+    }, []);
 
     useEffect(() => {
         const getCategories = async () => {
             try {
+                const token = JSON.parse(localStorage.getItem("posUser"))?.accessToken;
                 const res = await fetch(process.env.REACT_APP_SERVER_URL + "/api/categories/get-all-category", {
                     headers: {
                         "Authorization": `Bearer ${token}`,
-                        "Content-type": "application/json; charset=UTF-8"
-                    }
+                        "Content-Type": "application/json",
+                    },
                 });
-                if (res.status === 401) {
-                    throw new Error("Unauthorized");
+                if (res.ok) {
+                    const data = await res.json();
+                    setCategories(data.map((item) => {
+                        return { ...item, value: item.title }
+                    }));
+                } else {
+                    console.error("Failed to fetch categories:", res.statusText);
                 }
-                const data = await res.json();
-                data && setCategories(data.map((item) => {
-                    return { ...item, value: item.title }
-                }));
             } catch (error) {
                 console.log(error);
             }
         };
         getCategories();
-    }, [token]);
+    }, []);
 
     return (
         <>
