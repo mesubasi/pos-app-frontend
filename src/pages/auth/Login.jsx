@@ -21,13 +21,12 @@ const Login = () => {
             const data = await res.json();
 
             if (res.status === 200) {
-                // accessToken'i localStorage'da sakla
-                localStorage.setItem("accessToken", data.accessToken);
 
                 // Kullanıcı bilgilerini localStorage'a kaydet
                 localStorage.setItem(
                     "posUser",
                     JSON.stringify({
+                        accessToken: data.accessToken,
                         email: data.email,
                     })
                 );
