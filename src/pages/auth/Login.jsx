@@ -21,11 +21,14 @@ const Login = () => {
             const data = await res.json();
 
             if (res.status === 200) {
+                // accessToken'i localStorage'da sakla
+                localStorage.setItem("accessToken", data.accessToken);
+
+                // Kullanıcı bilgilerini localStorage'a kaydet
                 localStorage.setItem(
                     "posUser",
                     JSON.stringify({
-                        username: data.user.username,
-                        email: data.user.email,
+                        email: data.email,
                     })
                 );
                 message.success("Successfully Logged In!");
@@ -42,6 +45,7 @@ const Login = () => {
             setLoading(false);
         }
     }
+
     return (
         <div className='h-screen'>
             <div className='flex justify-between h-full'>
@@ -92,4 +96,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default Login;
