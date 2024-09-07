@@ -1,5 +1,3 @@
-//HomePage.jsx
-
 import { useState, useEffect } from "react";
 import CartTotals from "../components/cart/CartTotals";
 import Categories from "../components/categories/Categories";
@@ -13,10 +11,20 @@ const HomePage = () => {
     const [products, setProducts] = useState();
     const [search, setSearch] = useState("");
 
+    const token = localStorage.getItem("accessToken");
+
     useEffect(() => {
         const getProducts = async () => {
             try {
-                const res = await fetch(process.env.REACT_APP_SERVER_URL + "/api/products/get-all-product");
+                const res = await fetch(process.env.REACT_APP_SERVER_URL + "/api/products/get-all-product", {
+                    headers: {
+                        "Authorization": `Bearer ${token}`,
+                        "Content-type": "application/json; charset=UTF-8"
+                    }
+                });
+                if (res.status === 401) {
+                    throw new Error("Unauthorized");
+                }
                 const data = await res.json();
                 setProducts(data);
             } catch (error) {
@@ -24,12 +32,20 @@ const HomePage = () => {
             }
         };
         getProducts();
-    }, []);
+    }, [token]);
 
     useEffect(() => {
         const getCategories = async () => {
             try {
-                const res = await fetch(process.env.REACT_APP_SERVER_URL + "/api/categories/get-all-category");
+                const res = await fetch(process.env.REACT_APP_SERVER_URL + "/api/categories/get-all-category", {
+                    headers: {
+                        "Authorization": `Bearer ${token}`,
+                        "Content-type": "application/json; charset=UTF-8"
+                    }
+                });
+                if (res.status === 401) {
+                    throw new Error("Unauthorized");
+                }
                 const data = await res.json();
                 data && setCategories(data.map((item) => {
                     return { ...item, value: item.title }
@@ -39,7 +55,7 @@ const HomePage = () => {
             }
         };
         getCategories();
-    }, []);
+    }, [token]);
 
     return (
         <>
@@ -63,7 +79,7 @@ const HomePage = () => {
                 </div>
             ) : (<Spin size="large" className="absolute top-1/2 h-screen w-screen flex justify-center" />)}
         </>
-    )
+    );
 }
 
-export default HomePage
+export default HomePage;
