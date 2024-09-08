@@ -46,7 +46,17 @@ export default App;
 export const RouteControl = ({ children }) => {
   const user = JSON.parse(localStorage.getItem("posUser"));
 
-  if (user && user.accessToken) {
+  const isTokenExpired = (token) => {
+    if (!token) return true;
+
+    const payloadBase64 = token.split('.')[1];
+    const decodedPayload = JSON.parse(atob(payloadBase64));
+
+    const expirationDate = decodedPayload.exp * 1000;
+    return Date.now() > expirationDate;
+  }
+
+  if (user && user.accessToken && !isTokenExpired(user.accessToken)) {
     return children;
   } else {
     return <Navigate to="/login" />;
