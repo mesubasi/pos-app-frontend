@@ -14,6 +14,7 @@ const CreateInvoice = ({ isModalOpen, setIsModalOpen }) => {
 
     const onFinish = async (values) => {
         try {
+            const token = JSON.parse(localStorage.getItem("posUser"))?.accessToken;
             const res = await fetch(process.env.REACT_APP_SERVER_URL + "/api/invoices/add-invoices", {
                 method: "POST",
                 body: JSON.stringify({
@@ -24,6 +25,7 @@ const CreateInvoice = ({ isModalOpen, setIsModalOpen }) => {
                     cartItems: cart.cartItems,
                 }),
                 headers: {
+                    "Authorization": `Bearer ${token}`,
                     'Content-Type': 'application/json; charset=UTF-8',
                 },
             });
