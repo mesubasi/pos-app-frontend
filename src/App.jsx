@@ -59,7 +59,6 @@ export const RouteControl = ({ children }) => {
   if (user && user.accessToken && !isTokenExpired(user.accessToken)) {
     return children;
   } else {
-    localStorage.removeItem("posUser");
     return <Navigate to="/login" />;
   }
 }

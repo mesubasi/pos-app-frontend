@@ -28,6 +28,7 @@ const Login = () => {
                     JSON.stringify({
                         accessToken: data.accessToken,
                         email: data.email,
+                        username: data.username
                     })
                 );
                 message.success("Successfully Logged In!");
