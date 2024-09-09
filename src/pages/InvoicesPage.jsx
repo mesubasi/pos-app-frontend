@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 import PrintInvoices from '../components/invoices/PrintInvoices';
 import { SearchOutlined } from '@ant-design/icons';
 import Highlighter from 'react-highlight-words';
+import { useNavigate } from 'react-router-dom';
 
 
 const InvoicesPage = () => {
@@ -15,6 +16,9 @@ const InvoicesPage = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [invoiceItems, setInvoiceItems] = useState();
     const [customer, setCustomer] = useState();
+    const navigate = useNavigate();
+
+
 
     const handleSearch = (selectedKeys, confirm, dataIndex) => {
         confirm();
@@ -124,7 +128,13 @@ const InvoicesPage = () => {
     useEffect(() => {
         const getInvoices = async () => {
             try {
-                const res = await fetch(process.env.REACT_APP_SERVER_URL + "/api/invoices/get-all-invoices")
+                const token = JSON.parse(localStorage.getItem("posUser"))?.accessToken;
+                const res = await fetch(process.env.REACT_APP_SERVER_URL + "/api/invoices/get-all-invoices", {
+                    headers: {
+                        "Authorization": `Bearer ${token}`,
+                        "Content-Type": "application/json",
+                    },
+                })
                 const data = await res.json();
                 setInvoiceItems(data);
             } catch (error) {

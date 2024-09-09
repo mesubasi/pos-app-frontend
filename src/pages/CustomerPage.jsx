@@ -121,7 +121,13 @@ const CustomerPage = () => {
     useEffect(() => {
         const getInvoices = async () => {
             try {
-                const res = await fetch(process.env.REACT_APP_SERVER_URL + "/api/invoices/get-all-invoices")
+                const token = JSON.parse(localStorage.getItem("posUser"))?.accessToken;
+                const res = await fetch(process.env.REACT_APP_SERVER_URL + "/api/invoices/get-all-invoices", {
+                    headers: {
+                        "Authorization": `Bearer ${token}`,
+                        "Content-Type": "application/json",
+                    }
+                })
                 const data = await res.json();
                 setInvoiceItems(data);
             } catch (error) {

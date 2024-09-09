@@ -24,7 +24,7 @@ const Categories = ({ categories, setCategories, setFiltered, products }) => {
     return (
         <ul className="flex md:flex-col gap-4 text-lg">
             {categories.map((item) => (
-                <li key={item._id} className={`category-item ${item.title === categoryTitle && "bg-pink-700"}`} onClick={() => {
+                <li key={item._id} className={`category-item ${item.title === categoryTitle && "bg-pink-700"} rounded-md`} onClick={() => {
                     setCategoryTitle(item.title)
                 }}>
                     <span>{item.title}</span>
