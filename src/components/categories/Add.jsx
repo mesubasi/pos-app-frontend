@@ -8,8 +8,9 @@ const Add = ({ isModalAddOpen, setIsModalAddOpen, categories, setCategories }) =
 
     const onFinish = (values) => {
         try {
+            const token = JSON.parse(localStorage.getItem("posUser")?.accessToken);
             fetch(process.env.REACT_APP_SERVER_URL + "/api/categories/add-category", {
-                method: "POST", body: JSON.stringify(values), headers: { "Content-type": "application/json; charset=UTF-8" }
+                method: "POST", body: JSON.stringify(values), headers: { "Authorization": `Bearer ${token}`, "Content-type": "application/json; charset=UTF-8" }
             })
             message.success("Category Succesfully Added.");
             form.resetFields()
