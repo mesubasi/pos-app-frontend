@@ -10,8 +10,11 @@ const Edit = () => {
 
     useEffect(() => {
         const getProducts = async () => {
+            const token = JSON.parse(localStorage.getItem("posUser"))?.accessToken;
             try {
-                const res = await fetch(process.env.REACT_APP_SERVER_URL + "/api/products/get-all-product");
+                const res = await fetch(process.env.REACT_APP_SERVER_URL + "/api/products/get-all-product", {
+                    headers: { "Authorization": `Bearer ${token}`, "Content-type": "application/json; charset=UTF-8" }
+                });
                 const data = await res.json();
                 setProducts(data);
             } catch (error) {
@@ -23,8 +26,11 @@ const Edit = () => {
 
     useEffect(() => {
         const getCategories = async () => {
+            const token = JSON.parse(localStorage.getItem("posUser"))?.accessToken;
             try {
-                const res = await fetch(process.env.REACT_APP_SERVER_URL + "/api/categories/get-all-category");
+                const res = await fetch(process.env.REACT_APP_SERVER_URL + "/api/categories/get-all-category", {
+                    headers: { "Authorization": `Bearer ${token}`, "Content-type": "application/json; charset=UTF-8" }
+                });
                 const data = await res.json();
                 data && setCategories(data.map((item) => {
                     return { ...item, value: item.title }
@@ -38,10 +44,11 @@ const Edit = () => {
 
     const onFinish = async (values) => {
         try {
+            const token = JSON.parse(localStorage.getItem("posUser"))?.accessToken;
             await fetch(process.env.REACT_APP_SERVER_URL + "/api/products/update-product", {
                 method: "PUT",
                 body: JSON.stringify({ ...values, productId: editingItem._id }),
-                headers: { "Content-type": "application/json; charset=UTF-8" },
+                headers: { "Authorization": `Bearer ${token}`, "Content-type": "application/json; charset=UTF-8" },
             });
             message.success("Product Successfully Updated!");
             setProducts(products.map((item) => {
@@ -60,10 +67,11 @@ const Edit = () => {
     const deleteProduct = async (id) => {
         if (window.confirm("Are you sure?")) {
             try {
+                const token = JSON.parse(localStorage.getItem("posUser"))?.accessToken;
                 await fetch(`http://localhost:5000/api/products/delete-product`, {
                     method: "DELETE",
                     body: JSON.stringify({ productId: id }),
-                    headers: { "Content-type": "application/json; charset=UTF-8" },
+                    headers: { "Authorization": `Bearer ${token}`, "Content-type": "application/json; charset=UTF-8" },
                 });
                 message.success("Product Deleted Successfully");
                 setProducts(products.filter((item) => item._id !== id));

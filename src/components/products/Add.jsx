@@ -7,9 +7,10 @@ const Add = ({ isModalAddOpen, setIsModalAddOpen, categories, products, setProdu
     const [form] = Form.useForm()
 
     const onFinish = (values) => {
+        const token = JSON.parse(localStorage.getItem("posUser"))?.accessToken;
         try {
             fetch(process.env.REACT_APP_SERVER_URL + "/api/products/add-product", {
-                method: "POST", body: JSON.stringify(values), headers: { "Content-type": "application/json; charset=UTF-8" }
+                method: "POST", body: JSON.stringify(values), headers: { "Authorization": `Bearer ${token}`, "Content-type": "application/json; charset=UTF-8" }
             })
             message.success("Product Succesfully Added.");
             form.resetFields()

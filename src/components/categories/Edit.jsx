@@ -5,18 +5,19 @@ export const Edit = ({ isModalEditOpen, setIsModalEditOpen, categories, setCateg
     const [editingRow, setEditingRow] = useState({})
     const onFinish = async (values) => {
         try {
+            const token = JSON.parse(localStorage.getItem("posUser"))?.accessToken;
             await fetch(process.env.REACT_APP_SERVER_URL + "/api/categories/update-category",
                 {
                     method: "PUT",
                     body: JSON.stringify({ ...values, categoryId: editingRow._id }),
-                    headers: { "Content-type": "application/json; charset=UTF-8" },
+                    headers: { "Authorization": `Bearer ${token}`, "Content-type": "application/json; charset=UTF-8" },
                 })
             message.success("Category Successfully Updated!")
             setCategories(categories.map((item) => {
                 if (item._id === editingRow._id) {
-                    return { ...record, title: values.title }
+                    return { ...item, title: values.title }
                 } else {
-                    return record
+                    return item;
                 }
             }))
         } catch (err) {
@@ -28,10 +29,11 @@ export const Edit = ({ isModalEditOpen, setIsModalEditOpen, categories, setCateg
     const deleteCategory = async (id) => {
         if (window.confirm("Are you sure?")) {
             try {
+                const token = JSON.parse(localStorage.getItem("posUser"))?.accessToken;
                 await fetch(process.env.REACT_APP_SERVER_URL + "/api/categories/delete-category", {
                     method: "DELETE",
                     body: JSON.stringify({ categoryId: id }),
-                    headers: { "Content-type": "application/json; charset=UTF-8" },
+                    headers: { "Authorization": `Bearer ${token}`, "Content-type": "application/json; charset=UTF-8" },
                 })
                 message.success("Category Deleted Successfully")
                 setCategories(categories.filter((item) => item._id !== id))
@@ -50,9 +52,9 @@ export const Edit = ({ isModalEditOpen, setIsModalEditOpen, categories, setCateg
             render: (_, record) => {
                 if (record._id === editingRow._id) {
                     return (
-                        <Form.record className='mb-0' name="title">
-                            <Input defaultValue={record.title} />
-                        </Form.record>
+                        <Form.Item initialValue={record.title} className='mb-0' name="title">
+                            <Input />
+                        </Form.Item>
                     )
                 } else {
                     return <p>{record.title}</p>

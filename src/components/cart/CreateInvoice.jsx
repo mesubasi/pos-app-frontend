@@ -46,7 +46,7 @@ const CreateInvoice = ({ isModalOpen, setIsModalOpen }) => {
     return (
         <>
             <Modal title="Create Invoice" open={isModalOpen} footer={false} onCancel={() => setIsModalOpen(false)}>
-                <Form layout="vertical" onFinish={onFinish}>
+                <Form layout="vertical" onFinish={onFinish} >
                     <Form.Item
                         label="Customer Name"
                         name="customerName"
