@@ -33,6 +33,7 @@ This repository contains the front end of the MERN Stack POS Application. The fr
    Create a .env file in the root of the project and add the following variables:
 
    ```sh
+   REACT_APP_SERVER_URL = "Backend Service Url"
    ```
 
 4. **Start the development server:**
@@ -59,11 +60,13 @@ This repository contains the front end of the MERN Stack POS Application. The fr
 
 - **React**
 - **Vite**
-- **Redux**
+- **React Redux**
 - **React Router**
 - **Ant Design**
 - **Tailwind CSS**
 - **Google Fonts**
+- **React to Print**
+- **React Highlight Words**
 
 ## Images/Screenshots
 
@@ -100,9 +103,7 @@ Contributions are welcome! Please follow these steps:
 
 The following environment variables are required for the application to run:
 
-- VITE_API_URL: The base URL for the API.
-- VITE_AUTH_SECRET: The secret key for authentication.
-- VITE_OTHER_CONFIG: Any other configuration needed.
+- REACT_APP_SERVER_URL = API URL after installation of Pos-app-backend on the server
 
 ## License
 
