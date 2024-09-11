@@ -8,7 +8,7 @@ import Register from "./pages/auth/Register";
 import Login from "./pages/auth/Login";
 import ProductPage from "./components/products/ProductPage";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
 
@@ -42,9 +42,8 @@ function App() {
 
 export default App;
 
-
 export const RouteControl = ({ children }) => {
-  const user = JSON.parse(localStorage.getItem("posUser"));
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("posUser")));
 
   const isTokenExpired = (token) => {
     if (!token) return true;
@@ -54,12 +53,50 @@ export const RouteControl = ({ children }) => {
 
     const expirationDate = decodedPayload.exp * 1000;
     return Date.now() > expirationDate;
-  }
+  };
 
-  if (user && user.accessToken && !isTokenExpired(user.accessToken)) {
-    return children;
-  } else {
-    localStorage.removeItem("posUser");
+
+  const refreshToken = async () => {
+    try {
+      const res = await fetch(process.env.REACT_APP_SERVER_URL + "/api/auth/refresh", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        const updatedUser = { ...user, accessToken: data.accessToken };
+        localStorage.setItem("posUser", JSON.stringify(updatedUser));
+        setUser(updatedUser);
+        return true;
+      } else {
+        localStorage.removeItem("posUser");
+        return false;
+      }
+    } catch (error) {
+      console.error("Token yenileme hatası:", error);
+      localStorage.removeItem("posUser");
+      return false;
+    }
+  };
+
+  useEffect(() => {
+    const checkAndRefreshToken = async () => {
+      if (user && isTokenExpired(user.accessToken)) {
+        await refreshToken();
+      }
+    };
+
+    checkAndRefreshToken();
+  }, [user]);
+
+
+  if (!user || isTokenExpired(user.accessToken)) {
     return <Navigate to="/login" />;
   }
-}
+
+  return children;
+};
