@@ -56,7 +56,7 @@ This repository contains the front end of the MERN Stack POS Application. The fr
 - **Sales Management:** Track and manage sales transactions.
 - **Reports:** Generate sales and inventory reports.
 
-## Technologies Used
+## Technologies and Packages Used
 
 - **React**
 - **Vite**
