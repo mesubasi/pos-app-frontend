@@ -92,6 +92,10 @@ Here are some screenshots of the application:
 
 ![Invoice Viewing](https://raw.githubusercontent.com/mesubasi/pos-app-frontend/refs/heads/main/public/project-picture/5.PNG)
 
+### Customer Viewing
+
+![Customer Viewing](https://raw.githubusercontent.com/mesubasi/pos-app-frontend/refs/heads/main/public/project-picture/6.PNG)
+
 ## Contributing
 
 Contributions are welcome! Please follow these steps:
