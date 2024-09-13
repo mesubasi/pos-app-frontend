@@ -53,7 +53,7 @@ This repository contains the front end of the MERN Stack POS Application. The fr
 
 - **User Authentication:** Secure login and registration.
 - **Inventory Management:** Add, update, and delete inventory items.
-- **Sales Management:** Track and manage sales transactions.
+- **Order Creation Process:** Track and view order creation process.
 - **Reports:** View sales and inventory reports.
 
 ## Technologies and Packages Used
@@ -84,9 +84,9 @@ Here are some screenshots of the application:
 
 ![Inventory Management](https://raw.githubusercontent.com/mesubasi/pos-app-frontend/refs/heads/main/public/project-picture/2.PNG)
 
-### Sales Management
+### Order Creation Process
 
-![Sales Management](https://raw.githubusercontent.com/mesubasi/pos-app-frontend/refs/heads/main/public/project-picture/4.PNG)
+![Order Creation Process](https://raw.githubusercontent.com/mesubasi/pos-app-frontend/refs/heads/main/public/project-picture/4.PNG)
 
 ### Invoice Viewing
 
