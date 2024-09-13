@@ -78,15 +78,19 @@ Here are some screenshots of the application:
 
 ### Dashboard
 
-![Dashboard]()
+![Dashboard](https://raw.githubusercontent.com/mesubasi/pos-app-frontend/refs/heads/main/public/project-picture/3.PNG)
 
 ### Inventory Management
 
-![Inventory Management]()
+![Inventory Management](https://raw.githubusercontent.com/mesubasi/pos-app-frontend/refs/heads/main/public/project-picture/2.PNG)
 
 ### Sales Management
 
-![Sales Management]()
+![Sales Management](https://raw.githubusercontent.com/mesubasi/pos-app-frontend/refs/heads/main/public/project-picture/4.PNG)
+
+### Invoice Viewing
+
+![Invoice Viewing](https://raw.githubusercontent.com/mesubasi/pos-app-frontend/refs/heads/main/public/project-picture/5.PNG)
 
 ## Contributing
 
