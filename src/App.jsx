@@ -55,7 +55,6 @@ export const RouteControl = ({ children }) => {
     return Date.now() > expirationDate;
   };
 
-
   const refreshToken = async () => {
     try {
       const res = await fetch(process.env.REACT_APP_SERVER_URL + "/api/auth/refresh", {
@@ -77,7 +76,7 @@ export const RouteControl = ({ children }) => {
         return false;
       }
     } catch (error) {
-      console.error("Token yenileme hatası:", error);
+      console.error("Token refresh error:", error);
       localStorage.removeItem("posUser");
       return false;
     }
@@ -90,9 +89,13 @@ export const RouteControl = ({ children }) => {
       }
     };
 
-    checkAndRefreshToken();
-  }, [user]);
 
+    const intervalId = setInterval(() => {
+      checkAndRefreshToken();
+    }, 5 * 60 * 1000);
+
+    return () => clearInterval(intervalId);
+  }, [user]);
 
   if (!user || isTokenExpired(user.accessToken)) {
     return <Navigate to="/login" />;
